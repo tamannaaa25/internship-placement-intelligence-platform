@@ -17,15 +17,15 @@ This document serves as the project state and context tracker for the Internship
 * **ORM & Database**: Prisma Client with PostgreSQL.
 * **Authentication**: JWT & Role-Based Access Control (RBAC) (Pending implementation).
 * **APIs**: REST APIs built using Express controllers.
-* **AI Analysis**: Google Gemini API or OpenAI API integration for Resume ↔ JD match (Pending implementation).
+* **AI Analysis**: Google Gemini API integration (Mock fallback available).
 * **DevOps**: Docker, GitHub Actions, AWS EC2, S3, RDS (Pending implementation).
 
 ---
 
 ## 3. Active Phase & Focus
-* **Active Phase**: Phase 5 - Backend Development (In Progress)
-* **Current Task**: Build out Authentication APIs, middleware, and structure routes.
-* **Next Phase**: Phase 6 - Frontend Development.
+* **Active Phase**: Phase 6 - Frontend Development (In Progress)
+* **Current Task**: Initialize Next.js project with Tailwind CSS and configure routes.
+* **Next Phase**: Phase 7 - Testing.
 
 ---
 

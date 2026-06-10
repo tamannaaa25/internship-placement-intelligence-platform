@@ -12,8 +12,8 @@ This document outlines the roadmap and completion status across the 11 developme
 | **Phase 2** | User Stories & Detailed Scenario Mapping | **Completed** | Current Milestone |
 | **Phase 3** | Database Design (ERD, Migrations) | **Completed** | Database sync active |
 | **Phase 4** | System Design (Components, Scalability, Architecture) | *Skipped (Documentation)* | - |
-| **Phase 5** | Backend Development (Express API, Auth, Modules) | **In Progress** | Current Milestone |
-| **Phase 6** | Frontend Development (Next.js, Tailwind, Integration) | *Pending* | - |
+| **Phase 5** | Backend Development (Express API, Auth, Modules) | **Completed** | Core REST APIs deployed |
+| **Phase 6** | Frontend Development (Next.js, Tailwind, Integration) | **In Progress** | Current Milestone |
 | **Phase 7** | Testing (Unit, API, Integration Testing) | *Pending* | - |
 | **Phase 8** | Dockerization (Multi-stage builds, compose setup) | *Pending* | - |
 | **Phase 9** | AWS Deployment (RDS, S3, EC2 configuration) | *Pending* | - |
@@ -42,14 +42,14 @@ This document outlines the roadmap and completion status across the 11 developme
 * [x] Create Prisma schema declarations
 * [x] Document query optimizations and normalization choices
 
-### [ ] Phase 4: System Design
-* [ ] Complete high-level architecture designs
-* [ ] Analyze cache patterns (Redis) and worker queues (RabbitMQ/SQS) for file uploads
+### [x] Phase 4: System Design
+* [x] Complete high-level architecture designs
+* [x] Analyze cache patterns (Redis) and worker queues (RabbitMQ/SQS) for file uploads
 
-### [ ] Phase 5: Backend Development
-* [ ] Implement JWT auth, user registration, and login routes
-* [ ] Create application tracker endpoints with CRUD behavior
-* [ ] Build resume parsing services with LLM/Gemini integration
+### [x] Phase 5: Backend Development
+* [x] Implement JWT auth, user registration, and login routes
+* [x] Create application tracker endpoints with CRUD behavior
+* [x] Build resume parsing services with LLM/Gemini integration
 
 ### [ ] Phase 6: Frontend Development
 * [ ] Initialize Next.js project and setup styling with Tailwind CSS

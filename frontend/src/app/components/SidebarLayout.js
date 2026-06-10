@@ -10,13 +10,18 @@ export default function SidebarLayout({ children }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    setTimeout(() => {
+      setMounted(true);
+    }, 0);
+
     const token = localStorage.getItem("token");
     const storedUser = localStorage.getItem("user");
     if (!token && !pathname.includes("/login") && !pathname.includes("/register")) {
       router.push("/login");
     } else if (storedUser) {
-      setUser(JSON.parse(storedUser));
+      setTimeout(() => {
+        setUser(JSON.parse(storedUser));
+      }, 0);
     }
   }, [pathname, router]);
 

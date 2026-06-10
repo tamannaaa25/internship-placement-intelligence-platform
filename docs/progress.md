@@ -17,7 +17,7 @@ This document outlines the roadmap and completion status across the 11 developme
 | **Phase 7** | Testing (Unit, API, Integration Testing) | *Pending* | - |
 | **Phase 8** | Dockerization (Multi-stage builds, compose setup) | **Completed** | Multi-stage Docker config |
 | **Phase 9** | AWS Deployment (RDS, S3, EC2 configuration) | **Completed** | Production-ready guides & S3 client configuration |
-| **Phase 10**| CI/CD Pipeline (GitHub Actions integration) | *Pending* | - |
+| **Phase 10**| CI/CD Pipeline (GitHub Actions integration) | **Completed** | GitHub Actions workflows and local linter setups |
 | **Phase 11**| Resume Optimization & Technical Interview prep | *Pending* | - |
 
 ---
@@ -66,8 +66,10 @@ This document outlines the roadmap and completion status across the 11 developme
 * [x] Setup RDS database and secure S3 file storage buckets (with local mock fallbacks)
 * [x] Create production AWS EC2 host deployment manuals (`docs/AWS_DEPLOYMENT.md`)
 
-### [ ] Phase 10: CI/CD
-* [ ] Set up lint-test pipelines in GitHub Actions
+### [x] Phase 10: CI/CD
+* [x] Set up lint-test pipelines in GitHub Actions (`.github/workflows/ci.yml`)
+* [x] Configure flat ESLint checks for the Express backend (`backend/eslint.config.js`)
+* [x] Repair and optimize frontend layout code to pass strict Next.js compilation rules
 
 ### [ ] Phase 11: Resume Optimization & Interview Prep
 * [ ] Compile interview prep guidelines, resume bullet points, and recruiter-facing reports

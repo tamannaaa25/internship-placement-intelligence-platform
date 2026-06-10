@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { apiFetch } from "../../utils/api";
 
 export default function ApplicationsPage() {
@@ -32,11 +32,7 @@ export default function ApplicationsPage() {
   const [rating, setRating] = useState(3);
   const [notes, setNotes] = useState("");
 
-  useEffect(() => {
-    fetchApplications();
-  }, [statusFilter, searchFilter]);
-
-  const fetchApplications = async () => {
+  const fetchApplications = useCallback(async () => {
     setLoading(true);
     try {
       let query = "";
@@ -52,7 +48,13 @@ export default function ApplicationsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [statusFilter, searchFilter]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetchApplications();
+    }, 0);
+  }, [fetchApplications]);
 
   const fetchAppDetails = async (appId) => {
     try {

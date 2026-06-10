@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { apiFetch } from "../utils/api";
 
@@ -9,11 +9,7 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    fetchDashboardSummary();
-  }, []);
-
-  const fetchDashboardSummary = async () => {
+  const fetchDashboardSummary = useCallback(async () => {
     setLoading(true);
     try {
       const data = await apiFetch("/analytics/summary");
@@ -23,7 +19,13 @@ export default function DashboardPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetchDashboardSummary();
+    }, 0);
+  }, [fetchDashboardSummary]);
 
   const getScoreColor = (score) => {
     if (score >= 80) return "text-emerald-400";

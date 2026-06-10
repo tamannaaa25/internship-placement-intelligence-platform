@@ -9,7 +9,7 @@ This document outlines the roadmap and completion status across the 11 developme
 | Phase | Description | Status | Target Date / Milestone |
 |:---|:---|:---:|:---|
 | **Phase 1** | Product Requirements Document (PRD) & Workflow Setup | **Completed** | Current Milestone |
-| **Phase 2** | User Stories & Detailed Scenario Mapping | *Pending* | - |
+| **Phase 2** | User Stories & Detailed Scenario Mapping | **Completed** | Current Milestone |
 | **Phase 3** | Database Design (ERD, Migrations) | *Pending* | - |
 | **Phase 4** | System Design (Components, Scalability, Architecture) | *Pending* | - |
 | **Phase 5** | Backend Development (Express API, Auth, Modules) | *Pending* | - |
@@ -32,10 +32,10 @@ This document outlines the roadmap and completion status across the 11 developme
 * [x] Define API REST contracts (`docs/api-spec.md`)
 * [x] Document project directory and structure layout (`docs/PROJECT_CONTEXT.md`)
 
-### [ ] Phase 2: User Stories & Detailed Scenario Mapping
-* [ ] Write user scenarios for auth, tracking, analysis, and analytics dashboard
-* [ ] Identify edge cases (e.g., deleted applications, large files, failed LLM calls)
-* [ ] Design PR workflows and create developer check-off items
+### [x] Phase 2: User Stories & Detailed Scenario Mapping
+* [x] Write user scenarios for auth, tracking, analysis, and analytics dashboard
+* [x] Identify edge cases (e.g., deleted applications, large files, failed LLM calls)
+* [x] Design PR workflows and create developer check-off items
 
 ### [ ] Phase 3: Database Design
 * [ ] Build entity relationships and generate SQL migration scripts

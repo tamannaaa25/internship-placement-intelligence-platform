@@ -23,9 +23,9 @@ This document serves as the project state and context tracker for the Internship
 ---
 
 ## 3. Active Phase & Focus
-* **Active Phase**: Phase 1 - Product Requirements Document (PRD) & Workspace Setup
-* **Current Task**: Establishing the core PRD, Git standards, and initial documentation.
-* **Next Phase**: Phase 2 - User Stories & Detailed Scenario Mapping.
+* **Active Phase**: Phase 2 - User Stories & Detailed Scenario Mapping (Completed)
+* **Current Task**: Detailed scenario definitions and mapping of technical edge cases.
+* **Next Phase**: Phase 3 - Database Design.
 
 ---
 
@@ -38,6 +38,7 @@ internship-placement-intelligence-platform/
 ├── README.md
 ├── docs/                   # Central repository for documentation
 │   ├── PRD.md              # Product Requirements Document
+│   ├── USER_STORIES.md     # User Stories & Acceptance Criteria
 │   ├── PROJECT_CONTEXT.md  # Project status tracker
 │   ├── architecture.md     # Architecture specifications
 │   ├── database.md         # Database design

@@ -23,9 +23,9 @@ This document serves as the project state and context tracker for the Internship
 ---
 
 ## 3. Active Phase & Focus
-* **Active Phase**: Phase 6 - Frontend Development (In Progress)
-* **Current Task**: Initialize Next.js project with Tailwind CSS and configure routes.
-* **Next Phase**: Phase 7 - Testing.
+* **Active Phase**: Phase 9 - AWS Deployment (In Progress)
+* **Current Task**: Setup AWS RDS database instances, configure S3 buckets, and map EC2 host ports.
+* **Next Phase**: Phase 10 - CI/CD.
 
 ---
 

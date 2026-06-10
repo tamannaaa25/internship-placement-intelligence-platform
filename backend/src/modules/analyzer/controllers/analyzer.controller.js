@@ -1,6 +1,7 @@
 const pdfService = require("../../../shared/utils/pdf.service");
 const aiService = require("../services/ai.service");
 const analyzerRepository = require("../repositories/analyzer.repository");
+const s3Service = require("../../../shared/services/s3.service");
 
 const analyzeResume = async (req, res, next) => {
   try {
@@ -32,9 +33,9 @@ const analyzeResume = async (req, res, next) => {
     const analysisResult = await aiService.compareResumeAndJd(extractedText, jobDescription);
 
     // 5. Store resume reference
-    // Note: Since S3 upload is in Phase 9, for now we set the fileUrl to a local placeholder URL
-    const fileUrlPlaceholder = `/uploads/${Date.now()}_${originalFileName}`;
-    const resume = await analyzerRepository.saveResume(userId, originalFileName, fileUrlPlaceholder);
+    // Upload PDF buffer to S3 (using fallback if credentials are not configured)
+    const fileUrl = await s3Service.uploadToS3(req.file.buffer, originalFileName, req.file.mimetype);
+    const resume = await analyzerRepository.saveResume(userId, originalFileName, fileUrl);
 
     // 6. Store matching analysis
     const analysis = await analyzerRepository.saveAnalysis(resume.id, jobDescription, analysisResult);

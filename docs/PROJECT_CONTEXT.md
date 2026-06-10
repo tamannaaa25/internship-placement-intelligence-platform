@@ -23,9 +23,9 @@ This document serves as the project state and context tracker for the Internship
 ---
 
 ## 3. Active Phase & Focus
-* **Active Phase**: Phase 9 - AWS Deployment (In Progress)
-* **Current Task**: Setup AWS RDS database instances, configure S3 buckets, and map EC2 host ports.
-* **Next Phase**: Phase 10 - CI/CD.
+* **Active Phase**: Phase 10 - CI/CD (Pending)
+* **Current Task**: Set up lint-test pipelines in GitHub Actions.
+* **Next Phase**: Phase 11 - Resume Optimization & Interview Prep.
 
 ---
 

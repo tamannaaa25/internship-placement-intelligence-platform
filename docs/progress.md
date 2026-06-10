@@ -10,9 +10,9 @@ This document outlines the roadmap and completion status across the 11 developme
 |:---|:---|:---:|:---|
 | **Phase 1** | Product Requirements Document (PRD) & Workflow Setup | **Completed** | Current Milestone |
 | **Phase 2** | User Stories & Detailed Scenario Mapping | **Completed** | Current Milestone |
-| **Phase 3** | Database Design (ERD, Migrations) | *Pending* | - |
-| **Phase 4** | System Design (Components, Scalability, Architecture) | *Pending* | - |
-| **Phase 5** | Backend Development (Express API, Auth, Modules) | *Pending* | - |
+| **Phase 3** | Database Design (ERD, Migrations) | **Completed** | Database sync active |
+| **Phase 4** | System Design (Components, Scalability, Architecture) | *Skipped (Documentation)* | - |
+| **Phase 5** | Backend Development (Express API, Auth, Modules) | **In Progress** | Current Milestone |
 | **Phase 6** | Frontend Development (Next.js, Tailwind, Integration) | *Pending* | - |
 | **Phase 7** | Testing (Unit, API, Integration Testing) | *Pending* | - |
 | **Phase 8** | Dockerization (Multi-stage builds, compose setup) | *Pending* | - |
@@ -37,10 +37,10 @@ This document outlines the roadmap and completion status across the 11 developme
 * [x] Identify edge cases (e.g., deleted applications, large files, failed LLM calls)
 * [x] Design PR workflows and create developer check-off items
 
-### [ ] Phase 3: Database Design
-* [ ] Build entity relationships and generate SQL migration scripts
-* [ ] Create Prisma schema declarations
-* [ ] Document query optimizations and normalization choices
+### [x] Phase 3: Database Design
+* [x] Build entity relationships and generate SQL migration scripts
+* [x] Create Prisma schema declarations
+* [x] Document query optimizations and normalization choices
 
 ### [ ] Phase 4: System Design
 * [ ] Complete high-level architecture designs

@@ -1,21 +1,12 @@
-# Database Design Schema & Normalization
+generator client {
+  provider = "prisma-client-js"
+}
 
-This document details the database schema, relational structure, normalization steps, and indexing strategy for the Internship & Placement Intelligence Platform.
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
 
----
-
-## 1. Relational Database Selection: PostgreSQL
-We utilize **PostgreSQL** (interfaced through the Prisma ORM) for the following reasons:
-1. **ACID Compliance**: Crucial for tracking application progress, offer signatures, and user authentications securely.
-2. **Complex Queries**: Required to generate multidimensional analytics dashboard statistics (e.g. nested round metrics, weekly performance).
-3. **Structured Schemas**: Prevent data pollution by enforcing type safety at the storage level.
-
----
-
-## 2. Implemented Schema Code (Prisma)
-The following relational layout has been deployed to the PostgreSQL database (`internship_platform` schema: `public`):
-
-```prisma
 enum Role {
   STUDENT
   ADMIN
@@ -109,25 +100,3 @@ model SkillAnalysis {
 
   @@index([resumeId])
 }
-```
-
----
-
-## 3. Relationships and Cascade Triggers
-* **User ↔ Application**: 1:N relationship. When a user is deleted, their applications cascade delete (`onDelete: Cascade`).
-* **Application ↔ InterviewRound**: 1:N relationship. When an application is deleted, its interview rounds cascade delete (`onDelete: Cascade`).
-* **User ↔ Resume**: 1:N relationship. Deleting a user cascade-deletes their resumes.
-* **Resume ↔ SkillAnalysis**: 1:N relationship. Deleting a resume cascade-deletes its skill analysis reports.
-
----
-
-## 4. Deployed Indexes
-To optimize database lookups, the following index structures have been built:
-1. **Primary Key Indexes**: Deployed automatically on all UUID `id` columns.
-2. **Foreign Key Indexes**:
-   - Index on `Application(userId)` to optimize student application list fetching.
-   - Index on `InterviewRound(applicationId)` to speed up round details lookup.
-   - Index on `Resume(userId)` to fetch all resume documents.
-   - Index on `SkillAnalysis(resumeId)` to get AI gap records.
-3. **Composite Index**:
-   - Composite index on `Application(userId, status)` to boost query speeds for specific status metrics on dashboards.

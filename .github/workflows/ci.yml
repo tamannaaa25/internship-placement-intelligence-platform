@@ -31,6 +31,8 @@ jobs:
         working-directory: backend
 
       - name: Validate Prisma Schema
+        env:
+          DATABASE_URL: "postgresql://mockuser:mockpass@localhost:5432/mockdb"
         run: npx prisma validate
         working-directory: backend
 

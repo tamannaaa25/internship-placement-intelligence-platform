@@ -21,10 +21,9 @@ WORKDIR /usr/src/app
 ENV NODE_ENV=production
 
 COPY package*.json ./
-RUN npm ci --only=production
 
-COPY --from=builder /usr/src/app/node_modules/.prisma ./node_modules/.prisma
-COPY --from=builder /usr/src/app/node_modules/@prisma/client ./node_modules/@prisma/client
+# Copy node_modules directly from builder to avoid second npm network install
+COPY --from=builder /usr/src/app/node_modules ./node_modules
 COPY --from=builder /usr/src/app/src ./src
 COPY --from=builder /usr/src/app/prisma ./prisma
 

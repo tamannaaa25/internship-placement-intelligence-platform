@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5001/api/v1";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001/api/v1";
 
 export async function apiFetch(endpoint, options = {}) {
   const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;

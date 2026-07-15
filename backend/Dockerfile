@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /usr/src/app
 
@@ -14,7 +14,7 @@ COPY . .
 RUN npx prisma generate
 
 # Stage 2: Runner
-FROM node:18-alpine AS runner
+FROM node:20-alpine AS runner
 
 WORKDIR /usr/src/app
 

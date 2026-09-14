@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Placement & Internship Intelligence Dashboard</title>
+  <meta name="description" content="Simple, clean campus placement analytics and student career intelligence platform.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: #111827;
+      --card-hover: #1f2937;
+      --border: #1f2937;
+      --border-light: #374151;
+      --text: #f9fafb;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      font-size: 14px;
+      padding: 28px 24px 60px 24px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-title h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .header-title p {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 500;
+      background: #1f2937;
+      color: #9ca3af;
+      border: 1px solid #374151;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--border-light);
+      color: var(--text-muted);
+    }
+    .btn-outline:hover {
+      background: #1f2937;
+      color: var(--text);
+    }
+
+    .filter-bar {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .filter-inputs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      flex: 1;
+    }
+
+    .search-box {
+      min-width: 220px;
+      flex: 1;
+      max-width: 300px;
+    }
+
+    .search-box input {
+      width: 100%;
+      background: #0b0f19;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 6px 12px;
+      color: var(--text);
+      font-size: 13px;
+      outline: none;
+      font-family: inherit;
+    }
+    .search-box input:focus {
+      border-color: var(--primary);
+    }
+
+    .select-wrap select {
+      background: #0b0f19;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 6px 12px;
+      color: var(--text);
+      font-size: 13px;
+      outline: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .select-wrap select:focus {
+      border-color: var(--primary);
+    }
+
+    .filter-meta {
+      font-size: 12px;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+    }
+
+    .kpi-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .kpi-value {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 4px 0 2px 0;
+      letter-spacing: -0.02em;
+    }
+
+    .kpi-desc {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .chart-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      height: 320px;
+    }
+
+    .col-7 { grid-column: span 7; }
+    .col-5 { grid-column: span 5; }
+    .col-12 { grid-column: span 12; }
+
+    @media (max-width: 900px) {
+      .col-7, .col-5 { grid-column: span 12; }
+    }
+
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .chart-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .chart-hint {
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    .chart-body {
+      position: relative;
+      flex: 1;
+      width: 100%;
+    }
+
+    .table-section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .table-header {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .table-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    th {
+      padding: 10px 16px;
+      color: var(--text-muted);
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+      background: #0e1424;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    td {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: #151e32;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .status-placed {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    .status-unplaced {
+      background: rgba(156, 163, 175, 0.12);
+      color: #9ca3af;
+      border: 1px solid rgba(156, 163, 175, 0.2);
+    }
+
+    .intern-badge {
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #1f2937;
+      color: var(--text-muted);
+    }
+
+    .pagination {
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .pagination-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .pagination-btn {
+      background: #1f2937;
+      border: 1px solid var(--border-light);
+      color: var(--text);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .pagination-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .insights-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-bottom: 24px;
+    }
+
+    .insights-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .insights-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .insight-point {
+      padding: 12px 14px;
+      background: #0b0f19;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .insight-point strong {
+      display: block;
+      color: #e2e8f0;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .insight-point p {
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .downloads-bar {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+    }
+
+    .downloads-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .downloads-subtitle {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+
+    .downloads-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .download-tag {
+      font-size: 12px;
+      color: var(--text-muted);
+      background: #0b0f19;
+      border: 1px solid var(--border-light);
+      padding: 6px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+
+    .download-tag:hover {
+      background: #1f2937;
+      color: var(--text);
+      border-color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-title">
+        <h1>Placement &amp; Internship Intelligence</h1>
+      </div>
+      <div class="header-actions">
+        <span class="badge">800 Students</span>
+        <span class="badge">Batches 2023 - 2026</span>
+        <button id="btnExportCsv" class="btn btn-outline">Export Filtered CSV</button>
+      </div>
+    </header>
+
+    <section class="filter-bar">
+      <div class="filter-inputs">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search student, company, role...">
+        </div>
+        <div class="select-wrap">
+          <select id="filterDept">
+            <option value="ALL">All Departments</option>
+            <option value="Computer Science & Engineering">Computer Science</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="Electronics & Communication">Electronics & Comm</option>
+            <option value="Mechanical Engineering">Mechanical</option>
+            <option value="Civil Engineering">Civil</option>
+          </select>
+        </div>
+        <div class="select-wrap">
+          <select id="filterYear">
+            <option value="ALL">All Batches</option>
+            <option value="2023">Batch 2023</option>
+            <option value="2024">Batch 2024</option>
+            <option value="2025">Batch 2025</option>
+            <option value="2026">Batch 2026</option>
+          </select>
+        </div>
+        <div class="select-wrap">
+          <select id="filterStatus">
+            <option value="ALL">All Statuses</option>
+            <option value="Placed">Placed Only</option>
+            <option value="Unplaced">Unplaced Only</option>
+          </select>
+        </div>
+      </div>
+      <div class="filter-meta">
+        <span id="recordCountLabel">Showing 800 records</span>
+        <button id="btnReset" class="btn btn-outline" style="padding: 4px 10px;">Reset</button>
+      </div>
+    </section>
+
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-title">Total Students</div>
+        <div class="kpi-value" id="kpiTotal">800</div>
+        <div class="kpi-desc" id="kpiTotalDesc">Total clean cohort</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Placed Students</div>
+        <div class="kpi-value" id="kpiPlaced" style="color: #38bdf8;">644</div>
+        <div class="kpi-desc" id="kpiPlacedDesc">Successfully placed</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Placement Rate</div>
+        <div class="kpi-value" id="kpiRate" style="color: #34d399;">80.5%</div>
+        <div class="kpi-desc" id="kpiRateDesc">644 placed of 800</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Average Salary</div>
+        <div class="kpi-value" id="kpiSalary" style="color: #fbbf24;">10.99 LPA</div>
+        <div class="kpi-desc" id="kpiSalaryDesc">Excludes unplaced</div>
+      </div>
+    </section>
+
+    <section class="charts-grid">
+      <div class="chart-card col-7">
+        <div class="chart-header">
+          <div class="chart-title">Placement Rate by Department</div>
+          <div class="chart-hint">Percentage (%)</div>
+        </div>
+        <div class="chart-body">
+          <canvas id="chartDept"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-card col-5">
+        <div class="chart-header">
+          <div class="chart-title">Placement Trend (2023 - 2026)</div>
+          <div class="chart-hint">Cohort %</div>
+        </div>
+        <div class="chart-body">
+          <canvas id="chartYear"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-card col-12">
+        <div class="chart-header">
+          <div class="chart-title">Salary Package Distribution</div>
+          <div class="chart-hint">Placed students count by package bracket</div>
+        </div>
+        <div class="chart-body">
+          <canvas id="chartSalary"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="table-section">
+      <div class="table-header">
+        <div class="table-title">Student Placement Records</div>
+        <div id="tableCount" style="font-size: 12px; color: var(--text-dim);">800 students total</div>
+      </div>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Department</th>
+              <th>Batch</th>
+              <th>CGPA</th>
+              <th>Internship</th>
+              <th>Status</th>
+              <th>Company</th>
+              <th>Role</th>
+              <th>Package (LPA)</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        <span id="pageInfo">Page 1 of 80</span>
+        <div class="pagination-buttons">
+          <button id="btnPrev" class="pagination-btn">Previous</button>
+          <button id="btnNext" class="pagination-btn">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="insights-box">
+      <div class="insights-title">
+        <span>📌</span> Key Findings &amp; Observations
+      </div>
+      <div class="insights-list">
+        <div class="insight-point">
+          <strong>Internship Advantage (+34.1%)</strong>
+          <p>Candidates with prior internship experience achieve an 89.7% placement rate compared to 55.6% for non-interns, commanding higher average entry salaries.</p>
+        </div>
+        <div class="insight-point">
+          <strong>CSE &amp; IT Department Performance</strong>
+          <p>Computer Science and Information Technology lead the campus with conversion rates exceeding 84%, driven by strong demand for software and cloud roles.</p>
+        </div>
+        <div class="insight-point">
+          <strong>Recruiter Concentration</strong>
+          <p>Mass recruiters (TCS, Accenture, Infosys, Wipro) account for over 50% of total hires, while tier-1 tech firms account for top packages up to 34.56 LPA.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    const RAW_STUDENTS = window.RAW_STUDENTS || [];
+
+    Chart.defaults.color = '#9ca3af';
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.font.size = 12;
+    Chart.defaults.plugins.tooltip.backgroundColor = '#1f2937';
+    Chart.defaults.plugins.tooltip.titleColor = '#f9fafb';
+    Chart.defaults.plugins.tooltip.bodyColor = '#e5e7eb';
+    Chart.defaults.plugins.tooltip.borderColor = '#374151';
+    Chart.defaults.plugins.tooltip.borderWidth = 1;
+    Chart.defaults.plugins.tooltip.padding = 8;
+    Chart.defaults.plugins.tooltip.cornerRadius = 6;
+
+    let chartInstances = {};
+    let filteredStudents = [...RAW_STUDENTS];
+    let currentPage = 1;
+    const PAGE_SIZE = 10;
+
+    function applyFilters() {
+      const search = document.getElementById('searchInput').value.toLowerCase().trim();
+      const dept = document.getElementById('filterDept').value;
+      const year = document.getElementById('filterYear').value;
+      const status = document.getElementById('filterStatus').value;
+
+      filteredStudents = RAW_STUDENTS.filter(s => {
+        if (dept !== 'ALL' && s.Department !== dept) return false;
+        if (year !== 'ALL' && s.Graduation_Year != year) return false;
+        if (status !== 'ALL' && s.Placement_Status !== status) return false;
+
+        if (search) {
+          const matchId = (s.Student_ID || '').toLowerCase().includes(search);
+          const matchCompany = (s.Company || '').toLowerCase().includes(search);
+          const matchRole = (s.Job_Role || '').toLowerCase().includes(search);
+          const matchLoc = (s.Location || '').toLowerCase().includes(search);
+          const matchDept = (s.Department || '').toLowerCase().includes(search);
+          if (!matchId && !matchCompany && !matchRole && !matchLoc && !matchDept) return false;
+        }
+        return true;
+      });
+
+      currentPage = 1;
+      updateUI();
+    }
+
+    function updateUI() {
+      document.getElementById('recordCountLabel').textContent = `Showing ${filteredStudents.length} records`;
+      document.getElementById('tableCount').textContent = `${filteredStudents.length} records matching filters`;
+
+      const total = filteredStudents.length;
+      const placed = filteredStudents.filter(s => s.Placement_Status === 'Placed');
+      const placedCount = placed.length;
+      const rate = total > 0 ? ((placedCount / total) * 100).toFixed(1) : '0.0';
+
+      const salaries = placed.map(s => parseFloat(s.Salary_LPA)).filter(v => !isNaN(v) && v > 0);
+      const avgSalary = salaries.length > 0 ? (salaries.reduce((a, b) => a + b, 0) / salaries.length).toFixed(2) : '0.00';
+      const maxSalary = salaries.length > 0 ? Math.max(...salaries).toFixed(2) : '0.00';
+
+      document.getElementById('kpiTotal').textContent = total;
+      document.getElementById('kpiTotalDesc').textContent = total === 800 ? 'Total clean cohort' : 'Enrolled in filter';
+
+      document.getElementById('kpiPlaced').textContent = placedCount;
+      document.getElementById('kpiPlacedDesc').textContent = total > 0 ? `${((placedCount / total) * 100).toFixed(1)}% of cohort` : '0 placed';
+
+      document.getElementById('kpiRate').textContent = `${rate}%`;
+      document.getElementById('kpiRateDesc').textContent = `${placedCount} placed of ${total}`;
+
+      document.getElementById('kpiSalary').textContent = `${avgSalary} LPA`;
+      document.getElementById('kpiSalaryDesc').textContent = `Max offer: ${maxSalary} LPA`;
+
+      renderDeptChart();
+      renderYearChart();
+      renderSalaryChart(placed);
+      renderTable();
+    }
+
+    function renderDeptChart() {
+      const depts = [
+        'Computer Science & Engineering',
+        'Information Technology',
+        'Electronics & Communication',
+        'Mechanical Engineering',
+        'Civil Engineering'
+      ];
+      const shortLabels = ['CSE', 'IT', 'ECE', 'Mechanical', 'Civil'];
+      const rates = depts.map(d => {
+        const cohort = filteredStudents.filter(s => s.Department === d);
+        if (cohort.length === 0) return 0;
+        const pl = cohort.filter(s => s.Placement_Status === 'Placed').length;
+        return parseFloat(((pl / cohort.length) * 100).toFixed(1));
+      });
+
+      const ctx = document.getElementById('chartDept').getContext('2d');
+      if (chartInstances.dept) chartInstances.dept.destroy();
+
+      chartInstances.dept = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: shortLabels,
+          datasets: [{
+            label: 'Placement %',
+            data: rates,
+            backgroundColor: '#3b82f6',
+            borderRadius: 4,
+            barThickness: 32
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100,
+              grid: { color: '#1f2937' },
+              ticks: { callback: v => v + '%' }
+            },
+            x: {
+              grid: { display: false }
+            }
+          }
+        }
+      });
+    }
+
+    function renderYearChart() {
+      const years = ['2023', '2024', '2025', '2026'];
+      const rates = years.map(y => {
+        const cohort = filteredStudents.filter(s => s.Graduation_Year?.toString() === y);
+        if (cohort.length === 0) return 0;
+        const pl = cohort.filter(s => s.Placement_Status === 'Placed').length;
+        return parseFloat(((pl / cohort.length) * 100).toFixed(1));
+      });
+
+      const ctx = document.getElementById('chartYear').getContext('2d');
+      if (chartInstances.year) chartInstances.year.destroy();
+
+      chartInstances.year = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: years,
+          datasets: [{
+            label: 'Placement Rate',
+            data: rates,
+            borderColor: '#60a5fa',
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+            borderWidth: 2,
+            tension: 0.2,
+            fill: true,
+            pointRadius: 4,
+            pointBackgroundColor: '#3b82f6'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: {
+              min: 40,
+              max: 100,
+              grid: { color: '#1f2937' },
+              ticks: { callback: v => v + '%' }
+            },
+            x: { grid: { display: false } }
+          }
+        }
+      });
+    }
+
+    function renderSalaryChart(placedStudents) {
+      const brackets = { '< 6 LPA': 0, '6 - 10 LPA': 0, '10 - 18 LPA': 0, '18+ LPA': 0 };
+      placedStudents.forEach(s => {
+        const sal = parseFloat(s.Salary_LPA);
+        if (!isNaN(sal) && sal > 0) {
+          if (sal >= 18.0) brackets['18+ LPA']++;
+          else if (sal >= 10.0) brackets['10 - 18 LPA']++;
+          else if (sal >= 6.0) brackets['6 - 10 LPA']++;
+          else brackets['< 6 LPA']++;
+        }
+      });
+
+      const ctx = document.getElementById('chartSalary').getContext('2d');
+      if (chartInstances.salary) chartInstances.salary.destroy();
+
+      chartInstances.salary = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: Object.keys(brackets),
+          datasets: [{
+            label: 'Students Count',
+            data: Object.values(brackets),
+            backgroundColor: ['#64748b', '#38bdf8', '#818cf8', '#fbbf24'],
+            borderRadius: 4,
+            barThickness: 40
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: { color: '#1f2937' }
+            },
+            x: { grid: { display: false } }
+          }
+        }
+      });
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('tableBody');
+      tbody.innerHTML = '';
+
+      const total = filteredStudents.length;
+      const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      const startIdx = (currentPage - 1) * PAGE_SIZE;
+      const pageData = filteredStudents.slice(startIdx, startIdx + PAGE_SIZE);
+
+      if (pageData.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="10" style="text-align:center; padding: 24px; color: var(--text-dim);">No matching student records found.</td></tr>';
+      } else {
+        pageData.forEach(s => {
+          const tr = document.createElement('tr');
+          const isPlaced = s.Placement_Status === 'Placed';
+          tr.innerHTML = `
+            <td style="font-family: monospace; font-weight: 600; color: #93c5fd;">${s.Student_ID || '-'}</td>
+            <td>${s.Department || '-'}</td>
+            <td>${s.Graduation_Year || '-'}</td>
+            <td style="font-weight: 500;">${s.CGPA || '-'}</td>
+            <td><span class="intern-badge">${s.Internship === 'Yes' ? 'Interned' : 'None'}</span></td>
+            <td><span class="status-badge ${isPlaced ? 'status-placed' : 'status-unplaced'}">${s.Placement_Status || 'Unplaced'}</span></td>
+            <td style="font-weight: 500;">${s.Company || '<span style="color:#6b7280">—</span>'}</td>
+            <td>${s.Job_Role || '<span style="color:#6b7280">—</span>'}</td>
+            <td style="font-weight: 600; color: ${isPlaced ? '#34d399' : '#6b7280'};">${s.Salary_LPA ? s.Salary_LPA + ' LPA' : '—'}</td>
+            <td>${s.Location || '<span style="color:#6b7280">—</span>'}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${totalPages} (${total} records)`;
+      document.getElementById('btnPrev').disabled = currentPage <= 1;
+      document.getElementById('btnNext').disabled = currentPage >= totalPages;
+    }
+
+    document.getElementById('btnPrev').addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        renderTable();
+      }
+    });
+
+    document.getElementById('btnNext').addEventListener('click', () => {
+      const totalPages = Math.ceil(filteredStudents.length / PAGE_SIZE);
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderTable();
+      }
+    });
+
+    ['searchInput', 'filterDept', 'filterYear', 'filterStatus'].forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener(el.tagName === 'INPUT' ? 'input' : 'change', applyFilters);
+    });
+
+    document.getElementById('btnReset').addEventListener('click', () => {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('filterDept').value = 'ALL';
+      document.getElementById('filterYear').value = 'ALL';
+      document.getElementById('filterStatus').value = 'ALL';
+      applyFilters();
+    });
+
+    document.getElementById('btnExportCsv').addEventListener('click', () => {
+      if (!filteredStudents.length) return;
+      const headers = Object.keys(filteredStudents[0]);
+      const csvRows = [headers.join(',')];
+      filteredStudents.forEach(row => {
+        const values = headers.map(h => {
+          const val = (row[h] || '').toString().replace(/"/g, '""');
+          return `"${val}"`;
+        });
+        csvRows.push(values.join(','));
+      });
+      const blob = new Blob([csvRows.join('\n')], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `placement_data_export_${new Date().toISOString().split('T')[0]}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    updateUI();
+  </script>
+</body>
+</html>

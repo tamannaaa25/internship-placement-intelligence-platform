@@ -1,75 +1,50 @@
 # Project Progress Tracking
 
-This document outlines the roadmap and completion status across the 11 developmental phases of the Internship & Placement Intelligence Platform.
+This document outlines the roadmap, completion status, and engineering checkpoints across the 11 development phases of the **Internship & Placement Intelligence Platform**.
 
 ---
 
-## Phase Status Summary
+## 🧭 Phase Status Summary
 
-| Phase | Description | Status | Target Date / Milestone |
-|:---|:---|:---:|:---|
-| **Phase 1** | Product Requirements Document (PRD) & Workflow Setup | **Completed** | Current Milestone |
-| **Phase 2** | User Stories & Detailed Scenario Mapping | **Completed** | Current Milestone |
-| **Phase 3** | Database Design (ERD, Migrations) | **Completed** | Database sync active |
-| **Phase 4** | System Design (Components, Scalability, Architecture) | *Skipped (Documentation)* | - |
-| **Phase 5** | Backend Development (Express API, Auth, Modules) | **Completed** | Core REST APIs deployed |
-| **Phase 6** | Frontend Development (Next.js, Tailwind, Integration) | **Completed** | Client UI views fully built |
-| **Phase 7** | Testing (Unit, API, Integration Testing) | *Pending* | - |
-| **Phase 8** | Dockerization (Multi-stage builds, compose setup) | **Completed** | Multi-stage Docker config |
-| **Phase 9** | AWS Deployment (RDS, S3, EC2 configuration) | **Completed** | Production-ready guides & S3 client configuration |
-| **Phase 10**| CI/CD Pipeline (GitHub Actions integration) | **Completed** | GitHub Actions workflows and local linter setups |
-| **Phase 11**| Resume Optimization & Technical Interview prep | *Pending* | - |
+| Phase | Description | Status | Current Milestone / Deliverables |
+| :--- | :--- | :---: | :--- |
+| **Phase 1** | Product Requirements Document (PRD) & Workflow Setup | **Completed** | Full PRD with 4 Core Pillars, Git Standards, NFRs & Metrics |
+| **Phase 2** | User Stories & Detailed Scenario Mapping | **Next Up** | Persona mapping, edge cases, acceptance criteria |
+| **Phase 3** | Database Design (Mongoose & MySQL Schemas, SQL Normalization) | **Completed** | Operational MongoDB models + MySQL analytical staging |
+| **Phase 4** | System Design (Multi-tier Architecture, Scalability, Caching) | **Completed** | High-level data flows, queue patterns, 10 to 100k scaling |
+| **Phase 5** | Backend Development (Express API, Modular Architecture) | **Completed** | REST APIs for Auth, Tracker, Analyzer & Intelligence |
+| **Phase 6** | Frontend Development (Next.js 16, React 19, Tailwind CSS 4) | **Completed** | Responsive UI, SidebarLayout, Chart.js Visualizations |
+| **Phase 7** | Testing (Unit, Integration & End-to-End Testing) | *Pending* | Jest / Supertest integration & mock validations |
+| **Phase 8** | Dockerization (Multi-stage containerization) | **Completed** | Multi-stage Dockerfiles & Docker Compose setup |
+| **Phase 9** | AWS Deployment (EC2, MongoDB Atlas & RDS MySQL, S3 File Storage) | **Completed** | Deployment manuals & S3 client configuration |
+| **Phase 10**| CI/CD Pipeline (GitHub Actions integration) | **Completed** | Automated GitHub Actions CI workflow (`ci.yml`) |
+| **Phase 11**| Resume Optimization & Technical Interview Coaching | *In Progress* | Resume bullet points, STAR interview answers & guides |
 
 ---
 
-## Detailed Task Breakdown
+## 📋 Detailed Phase 1 Check-Off List
 
 ### [x] Phase 1: Product Requirements Document (PRD) & Workflow Setup
-* [x] Draft high-quality PRD detailing objectives and requirements (`docs/PRD.md`)
-* [x] Define professional Git branching rules & commit standards (`docs/PRD.md`)
-* [x] Establish architecture concepts (`docs/architecture.md`)
-* [x] Map initial database models (`docs/database.md`)
-* [x] Define API REST contracts (`docs/api-spec.md`)
-* [x] Document project directory and structure layout (`docs/PROJECT_CONTEXT.md`)
+* [x] Define product vision, target audience, and core problem statements (`docs/PRD.md`)
+* [x] Detail User Personas: Aditya (Candidate) and Dr. Meenakshi (Placement Coordinator)
+* [x] Specify Core Module 1: Application Tracker (CRUD, Pipeline, Multi-round Interviews)
+* [x] Specify Core Module 2: AI-Powered Resume ↔ JD Skill Gap Analyzer (PDF parsing, ATS scoring 0-100)
+* [x] Specify Core Module 3: Personal Application Analytics Dashboard (Funnel drop-off, conversion rates)
+* [x] Specify Core Module 4: Campus Placement & Internship Intelligence Dashboard (800-record cohort, 5 KPIs, 7 charts)
+* [x] Formulate Non-Functional Requirements (P95 < 200ms latency, JWT security, data integrity)
+* [x] Define GitFlow-Lite branching strategy and Conventional Commits standard
+* [x] Document 3 high-frequency Product & System Architecture interview questions with sample answers
+* [x] Update supporting engineering documents:
+  - `docs/PROJECT_CONTEXT.md`
+  - `docs/architecture.md`
+  - `docs/database.md`
+  - `docs/api-spec.md`
+  - `docs/progress.md`
 
-### [x] Phase 2: User Stories & Detailed Scenario Mapping
-* [x] Write user scenarios for auth, tracking, analysis, and analytics dashboard
-* [x] Identify edge cases (e.g., deleted applications, large files, failed LLM calls)
-* [x] Design PR workflows and create developer check-off items
+---
 
-### [x] Phase 3: Database Design
-* [x] Build entity relationships and generate SQL migration scripts
-* [x] Create Prisma schema declarations
-* [x] Document query optimizations and normalization choices
-
-### [x] Phase 4: System Design
-* [x] Complete high-level architecture designs
-* [x] Analyze cache patterns (Redis) and worker queues (RabbitMQ/SQS) for file uploads
-
-### [x] Phase 5: Backend Development
-* [x] Implement JWT auth, user registration, and login routes
-* [x] Create application tracker endpoints with CRUD behavior
-* [x] Build resume parsing services with LLM/Gemini integration
-
-### [x] Phase 6: Frontend Development
-* [x] Initialize Next.js project and setup styling with Tailwind CSS
-* [x] Develop forms, tracking pipelines, and dashboard charts
-* [x] Integrate API modules with frontend handlers
-
-### [ ] Phase 7: Testing
-* [ ] Write test suites for API validation routines
-
-### [x] Phase 8: Dockerization
-* [x] Containerize applications with multi-stage Dockerfiles
-
-### [x] Phase 9: AWS Deployment
-* [x] Setup RDS database and secure S3 file storage buckets (with local mock fallbacks)
-* [x] Create production AWS EC2 host deployment manuals (`docs/AWS_DEPLOYMENT.md`)
-
-### [x] Phase 10: CI/CD
-* [x] Set up lint-test pipelines in GitHub Actions (`.github/workflows/ci.yml`)
-* [x] Configure flat ESLint checks for the Express backend (`backend/eslint.config.js`)
-* [x] Repair and optimize frontend layout code to pass strict Next.js compilation rules
-
-### [ ] Phase 11: Resume Optimization & Interview Prep
-* [ ] Compile interview prep guidelines, resume bullet points, and recruiter-facing reports
+## 🎯 Next Immediate Step (Phase 2)
+Transitioning into **Phase 2: User Stories & Acceptance Criteria**:
+* Detail user stories in standard format: *"As a `<role>`, I want to `<action>`, so that `<benefit>`"*.
+* Define Given-When-Then acceptance criteria for each story.
+* Map failure modes and edge cases (e.g. malformed PDFs, LLM rate limits, network timeouts).

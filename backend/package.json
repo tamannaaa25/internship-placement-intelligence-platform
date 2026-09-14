@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "prisma generate",
-    "start": "npx prisma db push && node src/server.js",
+    "build": "node -e \"console.log('Build complete')\"",
+    "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "db:mysql:setup": "node ../Placement\\ &\\ Internship\\ Intelligence/SQL/setup_mysql.js"
   },
   "keywords": [],
   "author": "",
@@ -16,17 +17,17 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1065.0",
     "@google/generative-ai": "^0.24.1",
-    "@prisma/client": "^6.19.3",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "helmet": "^8.2.0",
     "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.12.0",
     "morgan": "^1.11.0",
     "multer": "^2.1.1",
+    "mysql2": "^3.12.0",
     "pdf-parse": "1.1.1",
-    "prisma": "^6.19.3",
     "zod": "^4.4.3"
   },
   "devDependencies": {

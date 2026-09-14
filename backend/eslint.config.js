@@ -1,6 +1,6 @@
 module.exports = [
   {
-    ignores: ["node_modules/**", "prisma/**"],
+    ignores: ["node_modules/**"],
   },
   {
     languageOptions: {

@@ -1,17 +1,13 @@
-# Stage 1: Build
+# Stage 1: Build & Dependencies
 FROM node:20-alpine AS builder
 
 WORKDIR /usr/src/app
 
 COPY package*.json ./
-COPY prisma ./prisma/
 
-RUN npm ci
+RUN npm ci --omit=dev
 
 COPY . .
-
-# Generate Prisma Client
-RUN npx prisma generate
 
 # Stage 2: Runner
 FROM node:20-alpine AS runner
@@ -22,10 +18,9 @@ ENV NODE_ENV=production
 
 COPY package*.json ./
 
-# Copy node_modules directly from builder to avoid second npm network install
+# Copy node_modules and src directly from builder
 COPY --from=builder /usr/src/app/node_modules ./node_modules
 COPY --from=builder /usr/src/app/src ./src
-COPY --from=builder /usr/src/app/prisma ./prisma
 
 EXPOSE 5001
 

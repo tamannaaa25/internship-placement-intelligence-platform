@@ -1,55 +1,66 @@
-const prisma = require("../../../shared/utils/prisma");
+const mongoose = require("mongoose");
+const Application = require("../../../shared/models/Application");
+const Resume = require("../../../shared/models/Resume");
+
+const toObjectId = (userId) => {
+  if (!userId) return null;
+  if (mongoose.Types.ObjectId.isValid(userId)) {
+    return new mongoose.Types.ObjectId(userId);
+  }
+  return null;
+};
 
 const getApplicationStatusCounts = async (userId) => {
-  return prisma.application.groupBy({
-    by: ["status"],
-    where: { userId },
-    _count: {
-      _all: true,
-    },
-  });
+  const userObjectId = toObjectId(userId);
+  if (!userObjectId) return [];
+
+  const results = await Application.aggregate([
+    { $match: { userId: userObjectId } },
+    { $group: { _id: "$status", count: { $sum: 1 } } },
+  ]);
+
+  return results.map((r) => ({
+    status: r._id,
+    _count: { _all: r.count },
+  }));
 };
 
 const getApplicationDomainCounts = async (userId) => {
-  return prisma.application.groupBy({
-    by: ["domain"],
-    where: { userId },
-    _count: {
-      _all: true,
-    },
-    orderBy: {
-      _count: {
-        domain: "desc",
-      },
-    },
-  });
+  const userObjectId = toObjectId(userId);
+  if (!userObjectId) return [];
+
+  const results = await Application.aggregate([
+    { $match: { userId: userObjectId } },
+    { $group: { _id: "$domain", count: { $sum: 1 } } },
+    { $sort: { count: -1 } },
+  ]);
+
+  return results.map((r) => ({
+    domain: r._id,
+    _count: { _all: r.count },
+  }));
 };
 
 const getApplicationDates = async (userId) => {
-  return prisma.application.findMany({
-    where: { userId },
-    select: {
-      appliedDate: true,
-      status: true,
-    },
-    orderBy: {
-      appliedDate: "asc",
-    },
-  });
+  const userObjectId = toObjectId(userId);
+  if (!userObjectId) return [];
+
+  return Application.find({ userId: userObjectId })
+    .select("appliedDate status")
+    .sort({ appliedDate: 1 });
 };
 
 const getAverageMatchScore = async (userId) => {
-  const result = await prisma.skillAnalysis.aggregate({
-    _avg: {
-      matchScore: true,
-    },
-    where: {
-      resume: {
-        userId,
-      },
-    },
-  });
-  return result._avg.matchScore;
+  const userObjectId = toObjectId(userId);
+  if (!userObjectId) return 0;
+
+  const results = await Resume.aggregate([
+    { $match: { student: userObjectId } },
+    { $unwind: "$analyses" },
+    { $group: { _id: null, avgScore: { $avg: "$analyses.matchScore" } } },
+  ]);
+
+  return results.length > 0 ? results[0].avgScore : 0;
 };
 
 module.exports = {

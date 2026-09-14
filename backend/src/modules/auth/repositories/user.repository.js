@@ -1,33 +1,22 @@
-const prisma = require("../../../shared/utils/prisma");
+const User = require("../../../shared/models/User");
 
 const findByEmail = async (email) => {
-  return prisma.user.findUnique({
-    where: { email },
-  });
+  return User.findOne({ email: email.toLowerCase().trim() });
 };
 
 const findById = async (id) => {
-  return prisma.user.findUnique({
-    where: { id },
-    select: {
-      id: true,
-      name: true,
-      email: true,
-      role: true,
-      createdAt: true,
-      updatedAt: true,
-    },
-  });
+  return User.findById(id).select("name email role department graduationYear cgpa studentId createdAt updatedAt");
 };
 
 const create = async (userData) => {
-  return prisma.user.create({
-    data: {
-      name: userData.name,
-      email: userData.email,
-      password: userData.password,
-      role: userData.role || "STUDENT",
-    },
+  return User.create({
+    name: userData.name,
+    email: userData.email.toLowerCase().trim(),
+    password: userData.password,
+    role: userData.role || "STUDENT",
+    department: userData.department || "Computer Science & Engineering",
+    graduationYear: userData.graduationYear || 2025,
+    cgpa: userData.cgpa || 0.0,
   });
 };
 

@@ -1,17 +1,27 @@
 version: "3.8"
 
 services:
-  db:
-    image: postgres:15-alpine
-    container_name: ip-postgres-db
-    environment:
-      POSTGRES_USER: tamanna
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: internship_platform
+  mongo:
+    image: mongo:7
+    container_name: ip-mongodb
     ports:
-      - "5432:5432"
+      - "27017:27017"
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - mongodata:/data/db
+    networks:
+      - ip-network
+    restart: always
+
+  mysql:
+    image: mysql:8.0
+    container_name: ip-mysql-analytics
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: placement_analytics
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
     networks:
       - ip-network
     restart: always
@@ -25,12 +35,18 @@ services:
       - "5001:5001"
     environment:
       PORT: 5001
-      DATABASE_URL: postgresql://tamanna:password@db:5432/internship_platform?schema=public
+      NODE_ENV: production
       JWT_SECRET: my_super_secret_key
       JWT_EXPIRES_IN: 7d
-      NODE_ENV: production
+      MONGODB_URI: mongodb://mongo:27017/internship_platform
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: placement_analytics
+      MYSQL_PORT: 3306
     depends_on:
-      - db
+      - mongo
+      - mysql
     networks:
       - ip-network
     restart: always
@@ -44,6 +60,7 @@ services:
       - "3000:3000"
     environment:
       NODE_ENV: production
+      NEXT_PUBLIC_API_URL: http://backend:5001/api/v1
     depends_on:
       - backend
     networks:
@@ -51,7 +68,8 @@ services:
     restart: always
 
 volumes:
-  pgdata:
+  mongodata:
+  mysqldata:
 
 networks:
   ip-network:

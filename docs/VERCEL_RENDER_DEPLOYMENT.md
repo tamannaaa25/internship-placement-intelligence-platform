@@ -1,31 +1,30 @@
 # Vercel and Render Deployment Guide
 
-This document details the configuration and step-by-step process to deploy the **Internship & Placement Intelligence Platform** to managed cloud services: **Vercel** for the frontend, **Render** for the backend, and **Neon** (or Supabase) for the PostgreSQL database.
+This document details the configuration and step-by-step process to deploy the **Internship & Placement Intelligence Platform** to managed cloud services: **Vercel** for the frontend, **Render** for the backend, **MongoDB Atlas** for operational data, and **Managed MySQL** for analytics.
 
 ---
 
 ## Prerequisites
 1. A GitHub repository containing the latest codebase.
-2. A free account on [Neon](https://neon.tech/) (or Supabase) for the database.
-3. A free account on [Render](https://render.com/) for backend hosting.
-4. A free account on [Vercel](https://vercel.com/) for frontend hosting.
+2. A free account on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) for the application database.
+3. A managed MySQL database (e.g., [Aiven](https://aiven.io/), AWS RDS, or PlanetScale) for the analytics database.
+4. A free account on [Render](https://render.com/) for backend hosting.
+5. A free account on [Vercel](https://vercel.com/) for frontend hosting.
 
 ---
 
-## 1. Managed PostgreSQL Database Setup (Neon)
+## 1. Managed Databases Setup (MongoDB Atlas & MySQL)
 
-We migrate the database from the local instance to a managed PostgreSQL cluster on Neon.
+### 1.1 MongoDB Atlas Setup
+1. Log in to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+2. Create a Free M0 cluster named `placement-intelligence-cluster`.
+3. Create a database user and allow access from all IPs (`0.0.0.0/0`).
+4. Copy the URI (`MONGODB_URI`).
 
-### Steps:
-1. Log in to [Neon Console](https://neon.tech/).
-2. Click **Create Project**.
-3. Name your project (e.g., `placement-intelligence-db`), select PostgreSQL version (default `16` or `15` is fine), and choose your preferred region.
-4. Click **Create Project**.
-5. Once created, copy the **Connection string** from the dashboard. Ensure it looks like:
-   ```text
-   postgresql://<user>:<password>@<endpoint>/neondb?sslmode=require
-   ```
-6. Keep this connection string safe. This will be your production `DATABASE_URL`.
+### 1.2 Managed MySQL Setup
+1. Provision a free/developer MySQL 8.0 instance.
+2. Run `Placement & Internship Intelligence/SQL/data_cleaning.sql` to populate `placement_records`.
+3. Save the host, port, user, password, and database (`placement_analytics`).
 
 ---
 
@@ -40,16 +39,20 @@ We host the Node/Express backend on Render as a Web Service.
 4. Set the following settings:
    - **Name**: `placement-intelligence-backend`
    - **Environment**: `Node`
-   - **Region**: Choose the region closest to your Neon database region.
-   - **Branch**: `main` (or the branch you want to deploy).
-   - **Root Directory**: `backend` *(Crucial: set this so Render knows where the backend code resides)*.
+   - **Branch**: `main` (or active branch).
+   - **Root Directory**: `backend`
    - **Build Command**: `npm install && npm run build`
-   - **Start Command**: `npx prisma db push && npm start` *(Note: `db push` ensures that Neon is synced with schema models on startup).*
-5. Scroll down to **Environment Variables** and add the following keys:
-   - `PORT`: `10000` (or let Render assign it automatically)
+   - **Start Command**: `npm start`
+5. Scroll down to **Environment Variables** and add:
+   - `PORT`: `10000`
    - `NODE_ENV`: `production`
-   - `DATABASE_URL`: *(Your Neon Connection String)*
-   - `JWT_SECRET`: *(A random, secure cryptographic string, e.g., `supersecretkey123`)*
+   - `MONGODB_URI`: *(Your MongoDB Atlas Connection String)*
+   - `MYSQL_HOST`: *(Your MySQL Host)*
+   - `MYSQL_USER`: *(Your MySQL User)*
+   - `MYSQL_PASSWORD`: *(Your MySQL Password)*
+   - `MYSQL_DATABASE`: `placement_analytics`
+   - `MYSQL_PORT`: `3306`
+   - `JWT_SECRET`: *(A random, secure cryptographic string)*
    - `JWT_EXPIRES_IN`: `7d`
    - `GEMINI_API_KEY`: *(Optional: your Google Gemini API key if using AI analyzer features)*
    - `AWS_REGION`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_S3_BUCKET`: *(Optional: if configuring S3 bucket for PDF storage. If left out, backend falls back to mock storage)*

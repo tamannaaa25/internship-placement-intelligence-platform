@@ -1,0 +1,801 @@
+Student_ID,Department,Graduation_Year,CGPA,Internship,Placement_Status,Company,Job_Role,Salary_LPA,Location
+STU0001,Electronics & Communication,2023,7.76,No,Unplaced,,,,
+STU0002,Information Technology,2023,8.45,Yes,Placed,Wipro,Cloud Associate,6.35,Hyderabad
+STU0003,Mechanical Engineering,2023,8.3,Yes,Unplaced,,,,
+STU0004,Computer Science & Engineering,2023,6.61,No,Unplaced,,,,
+STU0005,Information Technology,2026,7.07,No,Unplaced,,,,
+STU0006,Computer Science & Engineering,2023,8.59,Yes,Placed,IBM,Full Stack Developer,8.59,Chennai
+STU0007,Computer Science & Engineering,2024,8.98,Yes,Placed,Cisco,Systems Engineer,16.16,Pune
+STU0008,Computer Science & Engineering,2023,7.37,Yes,Placed,Oracle,Full Stack Developer,19.01,Pune
+STU0009,Computer Science & Engineering,2024,7.24,Yes,Placed,JP Morgan,Full Stack Developer,15.38,Chennai
+STU0010,Electronics & Communication,2026,7.6,Yes,Placed,JP Morgan,DevOps Engineer,19.29,Gurgaon
+STU0011,Mechanical Engineering,2025,7.94,Yes,Placed,Cognizant,DevOps Engineer,7.02,Chennai
+STU0012,Computer Science & Engineering,2025,7.08,Yes,Placed,Wipro,Data Analyst,6.54,Bangalore
+STU0013,Computer Science & Engineering,2024,9.38,Yes,Placed,Google,QA Engineer,31.89,Bangalore
+STU0014,Computer Science & Engineering,2026,7.71,Yes,Placed,Accenture,Full Stack Developer,7.85,Pune
+STU0015,Computer Science & Engineering,2024,7.25,Yes,Placed,Accenture,Systems Engineer,5.92,Gurgaon
+STU0016,Computer Science & Engineering,2025,8.81,Yes,Placed,TCS,Cloud Associate,4.28,Hyderabad
+STU0017,Electronics & Communication,2026,8.55,Yes,Placed,Wipro,Software Engineer,4.62,Hyderabad
+STU0018,Mechanical Engineering,2026,8.35,Yes,Placed,JP Morgan,Business Analyst,23.26,Bangalore
+STU0019,Mechanical Engineering,2026,7.88,Yes,Placed,JP Morgan,Data Analyst,23.95,Pune
+STU0020,Computer Science & Engineering,2023,7.9,Yes,Placed,Wipro,Business Analyst,5.71,Bangalore
+STU0021,Computer Science & Engineering,2023,8.41,No,Placed,Wipro,Software Engineer,4.32,Pune
+STU0022,Civil Engineering,2023,7.19,No,Placed,TCS,Software Engineer,6.02,Bangalore
+STU0023,Information Technology,2026,8.18,Yes,Placed,IBM,Full Stack Developer,11.34,Bangalore
+STU0024,Computer Science & Engineering,2026,7.84,No,Placed,Accenture,Systems Engineer,7.22,Bangalore
+STU0025,Computer Science & Engineering,2023,7.21,Yes,Placed,Accenture,Full Stack Developer,6.06,Gurgaon
+STU0026,Electronics & Communication,2026,7.63,Yes,Placed,Infosys,Data Analyst,6.72,Hyderabad
+STU0027,Civil Engineering,2025,7.99,Yes,Placed,Microsoft,Systems Engineer,23.65,Mumbai
+STU0028,Electronics & Communication,2025,8.04,Yes,Unplaced,,,,
+STU0029,Mechanical Engineering,2026,8.5,Yes,Placed,TCS,Cloud Associate,6.01,Bangalore
+STU0030,Mechanical Engineering,2026,6.22,Yes,Placed,Capgemini,Software Engineer,5.64,Bangalore
+STU0031,Civil Engineering,2024,7.31,No,Unplaced,,,,
+STU0032,Mechanical Engineering,2024,7.18,Yes,Placed,TCS,Full Stack Developer,6.19,Pune
+STU0033,Mechanical Engineering,2023,8.72,Yes,Placed,Google,Full Stack Developer,30.64,Bangalore
+STU0034,Mechanical Engineering,2025,8.1,Yes,Placed,Wipro,Cloud Associate,4.78,Hyderabad
+STU0035,Information Technology,2024,8.21,Yes,Placed,TCS,Full Stack Developer,4.64,Gurgaon
+STU0036,Computer Science & Engineering,2025,7.22,Yes,Placed,Cognizant,Software Engineer,6.85,Bangalore
+STU0037,Civil Engineering,2025,7.96,No,Unplaced,,,,
+STU0038,Information Technology,2023,6.92,No,Unplaced,,,,
+STU0039,Computer Science & Engineering,2026,7.53,Yes,Placed,TCS,Data Analyst,5.59,Bangalore
+STU0040,Mechanical Engineering,2025,6.95,No,Unplaced,,,,
+STU0041,Computer Science & Engineering,2024,6.91,Yes,Placed,Google,Software Engineer,25.71,Bangalore
+STU0042,Computer Science & Engineering,2024,6.75,Yes,Placed,Infosys,Software Engineer,5.9,Chennai
+STU0043,Mechanical Engineering,2026,7.78,Yes,Placed,Cognizant,Business Analyst,7.3,Hyderabad
+STU0044,Computer Science & Engineering,2024,7.91,Yes,Placed,Oracle,Data Analyst,19.85,Gurgaon
+STU0045,Computer Science & Engineering,2024,8.21,Yes,Placed,TCS,Software Engineer,6.64,Noida
+STU0046,Information Technology,2025,7.45,Yes,Placed,Cognizant,QA Engineer,6.78,Noida
+STU0047,Computer Science & Engineering,2023,7.32,Yes,Placed,Deloitte,Cloud Associate,10.23,Bangalore
+STU0048,Computer Science & Engineering,2023,6.89,Yes,Placed,Cognizant,Cloud Associate,4.77,Pune
+STU0049,Electronics & Communication,2025,8.86,Yes,Placed,Cisco,Software Engineer,20.58,Noida
+STU0050,Computer Science & Engineering,2023,8.12,Yes,Placed,Oracle,Full Stack Developer,18.2,Chennai
+STU0051,Mechanical Engineering,2026,9.35,Yes,Placed,Infosys,Full Stack Developer,5.96,Bangalore
+STU0052,Mechanical Engineering,2025,8.76,Yes,Placed,TCS,Software Engineer,5.67,Hyderabad
+STU0053,Electronics & Communication,2023,8.08,Yes,Placed,Wipro,Cloud Associate,5.48,Bangalore
+STU0054,Computer Science & Engineering,2024,9.13,Yes,Placed,Accenture,Cloud Associate,5.77,Bangalore
+STU0055,Civil Engineering,2026,7.62,Yes,Placed,Microsoft,Software Engineer,20.55,Noida
+STU0056,Mechanical Engineering,2025,8.62,Yes,Placed,Microsoft,Full Stack Developer,29.41,Chennai
+STU0057,Information Technology,2025,8.75,No,Placed,Infosys,Full Stack Developer,6.17,Hyderabad
+STU0058,Information Technology,2026,9.12,Yes,Placed,Accenture,Systems Engineer,7.96,Bangalore
+STU0059,Computer Science & Engineering,2024,7.38,Yes,Placed,Infosys,Cloud Associate,6.62,Hyderabad
+STU0060,Electronics & Communication,2025,7.69,No,Unplaced,,,,
+STU0061,Information Technology,2025,9.18,Yes,Placed,Oracle,Full Stack Developer,15.51,Bangalore
+STU0062,Information Technology,2024,6.98,Yes,Placed,Amazon,Cloud Associate,21.59,Gurgaon
+STU0063,Mechanical Engineering,2025,7.89,Yes,Placed,Wipro,Full Stack Developer,6.1,Bangalore
+STU0064,Computer Science & Engineering,2023,7.32,Yes,Placed,Oracle,Data Analyst,18.51,Hyderabad
+STU0065,Computer Science & Engineering,2026,8.9,Yes,Placed,Google,Full Stack Developer,30.09,Hyderabad
+STU0066,Information Technology,2026,6.66,Yes,Placed,JP Morgan,Software Engineer,20.09,Bangalore
+STU0067,Information Technology,2024,8.08,No,Placed,Deloitte,Software Engineer,11.7,Pune
+STU0068,Computer Science & Engineering,2025,7.5,Yes,Placed,Deloitte,QA Engineer,7.81,Gurgaon
+STU0069,Mechanical Engineering,2024,7.51,No,Placed,Deloitte,Full Stack Developer,9.92,Hyderabad
+STU0070,Civil Engineering,2026,8.93,No,Placed,TCS,Full Stack Developer,6.57,Bangalore
+STU0071,Civil Engineering,2026,7.57,No,Placed,JP Morgan,Software Engineer,17.32,Chennai
+STU0072,Computer Science & Engineering,2023,7.45,No,Unplaced,,,,
+STU0073,Electronics & Communication,2024,7.24,Yes,Placed,Infosys,QA Engineer,6.66,Gurgaon
+STU0074,Computer Science & Engineering,2025,7.25,Yes,Placed,Cisco,Business Analyst,19.07,Hyderabad
+STU0075,Computer Science & Engineering,2026,7.63,Yes,Placed,Capgemini,Software Engineer,5.43,Gurgaon
+STU0076,Mechanical Engineering,2023,8.64,Yes,Placed,Amazon,Systems Engineer,29.36,Pune
+STU0077,Civil Engineering,2026,7.19,No,Placed,Infosys,Business Analyst,7.5,Bangalore
+STU0078,Information Technology,2026,9.9,Yes,Placed,Accenture,Software Engineer,7.98,Pune
+STU0079,Electronics & Communication,2024,7.08,No,Unplaced,,,,
+STU0080,Computer Science & Engineering,2025,6.95,Yes,Placed,Cognizant,Software Engineer,4.82,Pune
+STU0081,Electronics & Communication,2026,7.18,Yes,Unplaced,,,,
+STU0082,Electronics & Communication,2024,8.6,Yes,Placed,Infosys,Cloud Associate,6.53,Hyderabad
+STU0083,Computer Science & Engineering,2024,7.81,Yes,Placed,Capgemini,Software Engineer,8.28,Bangalore
+STU0084,Mechanical Engineering,2024,8.28,Yes,Placed,Cisco,Software Engineer,14.36,Mumbai
+STU0085,Mechanical Engineering,2023,6.64,No,Unplaced,,,,
+STU0086,Electronics & Communication,2023,8.21,Yes,Placed,Oracle,Cloud Associate,14.24,Bangalore
+STU0087,Computer Science & Engineering,2025,6.0,Yes,Placed,Cisco,Full Stack Developer,20.78,Pune
+STU0088,Computer Science & Engineering,2024,7.2,No,Unplaced,,,,
+STU0089,Mechanical Engineering,2025,6.52,Yes,Placed,JP Morgan,Data Analyst,23.88,Chennai
+STU0090,Computer Science & Engineering,2026,7.05,Yes,Placed,Microsoft,Data Analyst,27.42,Pune
+STU0091,Information Technology,2023,6.0,Yes,Placed,Accenture,DevOps Engineer,5.12,Chennai
+STU0092,Electronics & Communication,2024,7.8,No,Placed,Deloitte,Data Analyst,8.07,Hyderabad
+STU0093,Civil Engineering,2025,6.74,Yes,Unplaced,,,,
+STU0094,Mechanical Engineering,2024,8.18,No,Placed,Capgemini,Cloud Associate,6.28,Bangalore
+STU0095,Civil Engineering,2025,7.48,Yes,Unplaced,,,,
+STU0096,Information Technology,2025,7.91,Yes,Placed,IBM,Full Stack Developer,11.68,Gurgaon
+STU0097,Computer Science & Engineering,2023,7.36,Yes,Unplaced,,,,
+STU0098,Electronics & Communication,2025,7.83,No,Unplaced,,,,
+STU0099,Electronics & Communication,2025,6.89,No,Placed,Infosys,Systems Engineer,6.79,Hyderabad
+STU0100,Electronics & Communication,2023,7.06,No,Unplaced,,,,
+STU0101,Information Technology,2024,7.37,Yes,Unplaced,,,,
+STU0102,Electronics & Communication,2023,7.99,Yes,Placed,TCS,QA Engineer,4.82,Bangalore
+STU0103,Electronics & Communication,2025,7.13,Yes,Placed,Infosys,Software Engineer,5.13,Bangalore
+STU0104,Information Technology,2024,7.73,Yes,Placed,Capgemini,Software Engineer,7.78,Gurgaon
+STU0105,Information Technology,2023,7.5,Yes,Placed,TCS,Software Engineer,6.9,Noida
+STU0106,Information Technology,2023,8.68,Yes,Placed,IBM,Software Engineer,10.6,Chennai
+STU0107,Computer Science & Engineering,2025,8.5,Yes,Placed,Deloitte,Data Analyst,8.39,Chennai
+STU0108,Civil Engineering,2025,7.41,Yes,Placed,IBM,DevOps Engineer,10.04,Bangalore
+STU0109,Information Technology,2024,6.82,Yes,Placed,TCS,Full Stack Developer,4.11,Bangalore
+STU0110,Information Technology,2024,6.74,Yes,Placed,Capgemini,Full Stack Developer,7.21,Hyderabad
+STU0111,Computer Science & Engineering,2026,7.1,Yes,Placed,TCS,Data Analyst,5.32,Bangalore
+STU0112,Information Technology,2024,8.97,Yes,Placed,Cisco,Cloud Associate,16.27,Pune
+STU0113,Computer Science & Engineering,2025,8.35,No,Placed,TCS,Systems Engineer,5.79,Bangalore
+STU0114,Electronics & Communication,2026,8.46,Yes,Placed,Accenture,Software Engineer,7.03,Bangalore
+STU0115,Computer Science & Engineering,2026,8.25,Yes,Placed,IBM,Full Stack Developer,6.71,Chennai
+STU0116,Computer Science & Engineering,2023,8.44,Yes,Placed,Microsoft,Cloud Associate,23.64,Noida
+STU0117,Computer Science & Engineering,2024,9.3,No,Placed,Accenture,Full Stack Developer,7.28,Chennai
+STU0118,Civil Engineering,2026,7.53,No,Placed,Infosys,Business Analyst,6.42,Hyderabad
+STU0119,Computer Science & Engineering,2026,7.59,Yes,Unplaced,,,,
+STU0120,Mechanical Engineering,2026,9.68,Yes,Placed,Amazon,Software Engineer,23.56,Noida
+STU0121,Computer Science & Engineering,2024,8.48,Yes,Placed,Amazon,Software Engineer,19.57,Chennai
+STU0122,Computer Science & Engineering,2024,6.7,Yes,Placed,Capgemini,Software Engineer,6.49,Gurgaon
+STU0123,Electronics & Communication,2025,7.71,Yes,Placed,Deloitte,Data Analyst,10.51,Hyderabad
+STU0124,Electronics & Communication,2025,7.16,Yes,Placed,JP Morgan,Software Engineer,16.54,Chennai
+STU0125,Electronics & Communication,2023,6.61,Yes,Placed,Accenture,Cloud Associate,8.32,Mumbai
+STU0126,Computer Science & Engineering,2026,7.15,Yes,Placed,Deloitte,Systems Engineer,7.69,Hyderabad
+STU0127,Computer Science & Engineering,2025,8.14,Yes,Placed,Capgemini,Full Stack Developer,6.42,Hyderabad
+STU0128,Information Technology,2025,8.59,No,Placed,Capgemini,Software Engineer,7.49,Pune
+STU0129,Computer Science & Engineering,2023,7.52,Yes,Placed,TCS,Cloud Associate,5.34,Gurgaon
+STU0130,Electronics & Communication,2026,8.48,Yes,Placed,Capgemini,Systems Engineer,7.31,Bangalore
+STU0131,Computer Science & Engineering,2024,7.36,No,Placed,Deloitte,Full Stack Developer,9.52,Hyderabad
+STU0132,Information Technology,2024,7.21,Yes,Placed,Deloitte,Systems Engineer,9.83,Bangalore
+STU0133,Information Technology,2026,7.43,Yes,Unplaced,,,,
+STU0134,Mechanical Engineering,2024,9.7,Yes,Placed,Wipro,Software Engineer,5.07,Bangalore
+STU0135,Information Technology,2023,7.99,No,Placed,Wipro,QA Engineer,5.31,Hyderabad
+STU0136,Computer Science & Engineering,2026,8.29,Yes,Placed,Capgemini,DevOps Engineer,5.07,Pune
+STU0137,Computer Science & Engineering,2026,6.78,No,Placed,Wipro,Business Analyst,6.8,Hyderabad
+STU0138,Computer Science & Engineering,2025,7.49,Yes,Unplaced,,,,
+STU0139,Electronics & Communication,2025,8.36,Yes,Placed,Wipro,Data Analyst,4.71,Gurgaon
+STU0140,Mechanical Engineering,2023,8.36,Yes,Placed,Cognizant,Data Analyst,5.96,Hyderabad
+STU0141,Electronics & Communication,2024,7.9,Yes,Placed,Deloitte,Full Stack Developer,9.37,Bangalore
+STU0142,Computer Science & Engineering,2026,9.39,Yes,Placed,Cisco,Software Engineer,15.93,Hyderabad
+STU0143,Computer Science & Engineering,2024,7.37,No,Placed,Infosys,Full Stack Developer,6.23,Chennai
+STU0144,Information Technology,2024,7.42,Yes,Placed,Infosys,Software Engineer,6.25,Bangalore
+STU0145,Information Technology,2026,6.25,No,Unplaced,,,,
+STU0146,Information Technology,2025,8.59,Yes,Placed,Wipro,Software Engineer,6.49,Mumbai
+STU0147,Computer Science & Engineering,2023,6.1,Yes,Placed,Wipro,Software Engineer,5.7,Bangalore
+STU0148,Computer Science & Engineering,2026,9.64,Yes,Placed,Cognizant,Full Stack Developer,5.55,Chennai
+STU0149,Information Technology,2023,7.65,Yes,Placed,Infosys,DevOps Engineer,6.47,Hyderabad
+STU0150,Information Technology,2025,8.21,Yes,Placed,Infosys,Cloud Associate,6.22,Bangalore
+STU0151,Computer Science & Engineering,2025,6.61,No,Unplaced,,,,
+STU0152,Information Technology,2025,8.63,No,Placed,TCS,Full Stack Developer,6.87,Hyderabad
+STU0153,Electronics & Communication,2025,7.04,No,Placed,Infosys,Software Engineer,6.17,Mumbai
+STU0154,Computer Science & Engineering,2025,6.83,Yes,Unplaced,,,,
+STU0155,Computer Science & Engineering,2025,6.12,No,Unplaced,,,,
+STU0156,Computer Science & Engineering,2026,9.48,Yes,Placed,JP Morgan,Data Analyst,16.71,Bangalore
+STU0157,Computer Science & Engineering,2025,6.66,Yes,Unplaced,,,,
+STU0158,Computer Science & Engineering,2025,7.62,No,Placed,Oracle,Full Stack Developer,19.03,Bangalore
+STU0159,Electronics & Communication,2026,8.79,Yes,Placed,Deloitte,Software Engineer,11.47,Gurgaon
+STU0160,Computer Science & Engineering,2025,8.44,Yes,Placed,Wipro,DevOps Engineer,4.52,Bangalore
+STU0161,Mechanical Engineering,2023,7.17,No,Placed,Cognizant,Cloud Associate,6.77,Bangalore
+STU0162,Electronics & Communication,2023,7.83,No,Unplaced,,,,
+STU0163,Information Technology,2023,7.59,Yes,Placed,TCS,Software Engineer,5.34,Bangalore
+STU0164,Computer Science & Engineering,2024,7.38,Yes,Placed,Deloitte,Systems Engineer,10.59,Gurgaon
+STU0165,Electronics & Communication,2026,7.45,No,Placed,TCS,Full Stack Developer,6.97,Pune
+STU0166,Mechanical Engineering,2026,8.29,Yes,Placed,Wipro,Systems Engineer,5.29,Bangalore
+STU0167,Computer Science & Engineering,2025,8.7,Yes,Placed,Wipro,Full Stack Developer,6.9,Bangalore
+STU0168,Information Technology,2023,9.28,Yes,Placed,Cognizant,Software Engineer,6.52,Bangalore
+STU0169,Civil Engineering,2023,8.05,Yes,Placed,IBM,Systems Engineer,8.97,Hyderabad
+STU0170,Electronics & Communication,2024,7.76,Yes,Placed,Cognizant,Software Engineer,5.28,Bangalore
+STU0171,Electronics & Communication,2024,7.4,Yes,Placed,IBM,Software Engineer,10.71,Pune
+STU0172,Computer Science & Engineering,2023,8.27,Yes,Placed,Microsoft,Data Analyst,24.39,Chennai
+STU0173,Information Technology,2024,8.4,Yes,Placed,IBM,Data Analyst,11.92,Hyderabad
+STU0174,Civil Engineering,2026,6.59,No,Unplaced,,,,
+STU0175,Information Technology,2026,9.03,Yes,Placed,Microsoft,Full Stack Developer,27.54,Chennai
+STU0176,Mechanical Engineering,2025,7.39,No,Unplaced,,,,
+STU0177,Computer Science & Engineering,2023,6.69,No,Placed,Cognizant,Software Engineer,5.17,Pune
+STU0178,Computer Science & Engineering,2026,6.32,No,Unplaced,,,,
+STU0179,Mechanical Engineering,2024,7.99,No,Unplaced,,,,
+STU0180,Civil Engineering,2024,7.81,Yes,Placed,Infosys,Software Engineer,5.46,Hyderabad
+STU0181,Computer Science & Engineering,2025,7.46,No,Placed,Capgemini,Full Stack Developer,8.18,Hyderabad
+STU0182,Computer Science & Engineering,2025,7.86,Yes,Placed,Deloitte,Data Analyst,8.54,Bangalore
+STU0183,Electronics & Communication,2025,7.62,Yes,Placed,Cognizant,Systems Engineer,6.21,Hyderabad
+STU0184,Computer Science & Engineering,2026,6.47,No,Unplaced,,,,
+STU0185,Computer Science & Engineering,2025,8.29,Yes,Placed,Accenture,Systems Engineer,8.74,Pune
+STU0186,Computer Science & Engineering,2025,8.05,Yes,Placed,Accenture,Systems Engineer,6.72,Bangalore
+STU0187,Computer Science & Engineering,2025,7.84,No,Placed,JP Morgan,Software Engineer,18.59,Pune
+STU0188,Computer Science & Engineering,2024,8.65,Yes,Placed,Google,Data Analyst,32.99,Bangalore
+STU0189,Computer Science & Engineering,2026,7.46,Yes,Unplaced,,,,
+STU0190,Computer Science & Engineering,2026,6.82,Yes,Placed,Cognizant,Software Engineer,5.89,Bangalore
+STU0191,Electronics & Communication,2025,6.81,No,Unplaced,,,,
+STU0192,Electronics & Communication,2024,8.78,Yes,Placed,Cognizant,Full Stack Developer,7.84,Chennai
+STU0193,Information Technology,2024,8.69,Yes,Placed,Accenture,Cloud Associate,8.19,Bangalore
+STU0194,Electronics & Communication,2023,7.52,Yes,Placed,Oracle,QA Engineer,15.56,Bangalore
+STU0195,Information Technology,2025,7.69,Yes,Placed,Amazon,QA Engineer,24.09,Pune
+STU0196,Information Technology,2025,7.96,Yes,Placed,Deloitte,Software Engineer,8.25,Bangalore
+STU0197,Computer Science & Engineering,2024,7.04,Yes,Placed,Oracle,Data Analyst,14.66,Chennai
+STU0198,Information Technology,2026,7.04,Yes,Placed,Accenture,Full Stack Developer,7.78,Bangalore
+STU0199,Electronics & Communication,2025,9.3,Yes,Placed,Deloitte,Software Engineer,11.99,Chennai
+STU0200,Computer Science & Engineering,2026,7.55,No,Placed,Capgemini,Cloud Associate,7.74,Bangalore
+STU0201,Electronics & Communication,2025,7.93,No,Placed,TCS,Systems Engineer,5.52,Pune
+STU0202,Electronics & Communication,2026,7.53,Yes,Placed,Accenture,Data Analyst,6.42,Bangalore
+STU0203,Civil Engineering,2024,8.51,Yes,Placed,Wipro,Full Stack Developer,5.54,Chennai
+STU0204,Computer Science & Engineering,2023,7.89,Yes,Placed,Oracle,Full Stack Developer,13.13,Hyderabad
+STU0205,Computer Science & Engineering,2023,7.69,Yes,Placed,TCS,QA Engineer,4.33,Noida
+STU0206,Information Technology,2024,6.93,Yes,Placed,Accenture,Cloud Associate,5.75,Hyderabad
+STU0207,Information Technology,2024,8.44,Yes,Placed,Capgemini,Full Stack Developer,6.79,Bangalore
+STU0208,Mechanical Engineering,2025,7.87,No,Placed,Accenture,Full Stack Developer,7.35,Chennai
+STU0209,Electronics & Communication,2024,7.58,Yes,Placed,Deloitte,Data Analyst,10.62,Hyderabad
+STU0210,Information Technology,2025,7.61,Yes,Placed,Wipro,Full Stack Developer,4.62,Hyderabad
+STU0211,Information Technology,2023,7.04,Yes,Placed,Capgemini,Software Engineer,6.61,Bangalore
+STU0212,Computer Science & Engineering,2024,8.58,Yes,Placed,Cisco,QA Engineer,14.91,Chennai
+STU0213,Electronics & Communication,2024,8.03,Yes,Placed,JP Morgan,Full Stack Developer,18.5,Chennai
+STU0214,Computer Science & Engineering,2025,8.73,Yes,Placed,Deloitte,Software Engineer,8.43,Bangalore
+STU0215,Information Technology,2023,8.55,Yes,Placed,Cognizant,Software Engineer,5.94,Bangalore
+STU0216,Mechanical Engineering,2024,7.76,No,Unplaced,,,,
+STU0217,Computer Science & Engineering,2025,7.28,Yes,Placed,Infosys,Full Stack Developer,7.31,Noida
+STU0218,Mechanical Engineering,2026,7.26,Yes,Unplaced,,,,
+STU0219,Computer Science & Engineering,2024,8.01,Yes,Placed,Wipro,Full Stack Developer,5.66,Pune
+STU0220,Electronics & Communication,2026,8.5,Yes,Placed,JP Morgan,DevOps Engineer,18.28,Gurgaon
+STU0221,Mechanical Engineering,2026,8.52,Yes,Placed,Accenture,QA Engineer,7.9,Hyderabad
+STU0222,Computer Science & Engineering,2023,8.29,Yes,Placed,Accenture,DevOps Engineer,8.27,Hyderabad
+STU0223,Computer Science & Engineering,2023,7.99,Yes,Placed,Capgemini,Data Analyst,8.04,Pune
+STU0224,Electronics & Communication,2023,7.48,Yes,Unplaced,,,,
+STU0225,Information Technology,2023,8.22,Yes,Placed,TCS,Software Engineer,6.37,Pune
+STU0226,Electronics & Communication,2025,7.57,No,Unplaced,,,,
+STU0227,Information Technology,2025,7.84,Yes,Placed,Infosys,Software Engineer,6.41,Gurgaon
+STU0228,Computer Science & Engineering,2026,7.14,Yes,Placed,Cognizant,QA Engineer,7.84,Bangalore
+STU0229,Computer Science & Engineering,2026,8.66,Yes,Placed,TCS,Data Analyst,5.21,Hyderabad
+STU0230,Computer Science & Engineering,2025,7.58,Yes,Placed,Accenture,Data Analyst,8.05,Pune
+STU0231,Computer Science & Engineering,2023,6.99,No,Placed,Cognizant,Software Engineer,7.09,Pune
+STU0232,Information Technology,2024,8.22,Yes,Placed,Cisco,Software Engineer,20.25,Gurgaon
+STU0233,Mechanical Engineering,2024,9.09,Yes,Placed,Cisco,Software Engineer,20.87,Bangalore
+STU0234,Electronics & Communication,2023,8.37,Yes,Placed,Amazon,Full Stack Developer,19.12,Noida
+STU0235,Mechanical Engineering,2025,7.51,Yes,Placed,Google,Data Analyst,26.85,Gurgaon
+STU0236,Civil Engineering,2026,7.35,Yes,Unplaced,,,,
+STU0237,Computer Science & Engineering,2024,7.37,No,Unplaced,,,,
+STU0238,Information Technology,2026,8.37,No,Unplaced,,,,
+STU0239,Computer Science & Engineering,2026,8.9,Yes,Placed,Cisco,Cloud Associate,20.79,Bangalore
+STU0240,Information Technology,2023,8.01,No,Unplaced,,,,
+STU0241,Civil Engineering,2026,6.54,Yes,Unplaced,,,,
+STU0242,Electronics & Communication,2024,7.69,Yes,Placed,Cisco,Business Analyst,16.33,Noida
+STU0243,Information Technology,2024,8.28,Yes,Placed,TCS,Software Engineer,4.94,Hyderabad
+STU0244,Computer Science & Engineering,2024,7.69,Yes,Placed,Accenture,Business Analyst,5.16,Bangalore
+STU0245,Information Technology,2023,7.37,Yes,Placed,Wipro,Software Engineer,4.48,Chennai
+STU0246,Mechanical Engineering,2026,9.35,Yes,Placed,Google,Systems Engineer,29.62,Bangalore
+STU0247,Information Technology,2023,9.17,Yes,Placed,TCS,Full Stack Developer,6.17,Hyderabad
+STU0248,Computer Science & Engineering,2023,6.95,Yes,Placed,Accenture,Full Stack Developer,7.59,Gurgaon
+STU0249,Computer Science & Engineering,2023,8.4,Yes,Placed,JP Morgan,Full Stack Developer,21.82,Hyderabad
+STU0250,Information Technology,2023,9.53,Yes,Placed,Microsoft,Data Analyst,29.92,Chennai
+STU0251,Computer Science & Engineering,2024,6.38,No,Unplaced,,,,
+STU0252,Information Technology,2026,7.53,No,Placed,Accenture,Cloud Associate,8.22,Gurgaon
+STU0253,Information Technology,2025,8.81,Yes,Placed,Google,Software Engineer,25.02,Hyderabad
+STU0254,Computer Science & Engineering,2023,9.9,Yes,Placed,Oracle,Business Analyst,18.19,Gurgaon
+STU0255,Information Technology,2024,6.83,No,Placed,Accenture,Full Stack Developer,6.95,Pune
+STU0256,Computer Science & Engineering,2025,9.9,Yes,Placed,Oracle,Full Stack Developer,19.59,Mumbai
+STU0257,Electronics & Communication,2026,8.44,Yes,Placed,Google,Full Stack Developer,26.51,Pune
+STU0258,Computer Science & Engineering,2023,7.73,Yes,Placed,Cognizant,Full Stack Developer,4.67,Hyderabad
+STU0259,Mechanical Engineering,2024,6.72,No,Unplaced,,,,
+STU0260,Information Technology,2026,8.98,Yes,Placed,Google,Full Stack Developer,24.21,Pune
+STU0261,Information Technology,2025,7.64,No,Placed,IBM,Software Engineer,7.36,Bangalore
+STU0262,Information Technology,2026,7.87,Yes,Placed,Cisco,Data Analyst,17.14,Hyderabad
+STU0263,Information Technology,2024,7.25,Yes,Placed,Infosys,Business Analyst,4.75,Bangalore
+STU0264,Mechanical Engineering,2024,6.87,No,Placed,TCS,Software Engineer,5.14,Bangalore
+STU0265,Computer Science & Engineering,2024,9.16,Yes,Placed,JP Morgan,Software Engineer,16.28,Hyderabad
+STU0266,Information Technology,2024,8.39,Yes,Placed,IBM,Cloud Associate,10.9,Pune
+STU0267,Civil Engineering,2023,7.98,Yes,Placed,Capgemini,Data Analyst,5.35,Bangalore
+STU0268,Information Technology,2024,8.39,Yes,Placed,IBM,Data Analyst,10.83,Hyderabad
+STU0269,Computer Science & Engineering,2025,6.0,Yes,Unplaced,,,,
+STU0270,Mechanical Engineering,2024,6.76,No,Unplaced,,,,
+STU0271,Computer Science & Engineering,2024,6.9,Yes,Placed,Microsoft,Software Engineer,24.75,Hyderabad
+STU0272,Computer Science & Engineering,2025,6.98,No,Placed,IBM,DevOps Engineer,7.24,Hyderabad
+STU0273,Electronics & Communication,2025,8.63,No,Placed,Wipro,Full Stack Developer,5.75,Bangalore
+STU0274,Computer Science & Engineering,2025,8.34,Yes,Placed,IBM,Software Engineer,7.6,Bangalore
+STU0275,Computer Science & Engineering,2026,6.64,Yes,Placed,Accenture,Business Analyst,5.71,Hyderabad
+STU0276,Mechanical Engineering,2024,7.81,No,Placed,Amazon,Business Analyst,19.17,Chennai
+STU0277,Computer Science & Engineering,2023,7.26,No,Unplaced,,,,
+STU0278,Mechanical Engineering,2025,7.02,No,Placed,Infosys,Full Stack Developer,6.92,Noida
+STU0279,Mechanical Engineering,2026,7.27,Yes,Placed,Amazon,DevOps Engineer,31.99,Chennai
+STU0280,Computer Science & Engineering,2025,8.0,Yes,Placed,IBM,Cloud Associate,7.94,Gurgaon
+STU0281,Information Technology,2024,9.42,Yes,Placed,Accenture,Software Engineer,8.99,Hyderabad
+STU0282,Electronics & Communication,2025,8.44,Yes,Placed,Accenture,Systems Engineer,6.9,Hyderabad
+STU0283,Mechanical Engineering,2023,8.21,Yes,Unplaced,,,,
+STU0284,Computer Science & Engineering,2024,8.11,Yes,Placed,Infosys,Software Engineer,5.28,Gurgaon
+STU0285,Information Technology,2023,8.79,Yes,Placed,Deloitte,Full Stack Developer,11.97,Mumbai
+STU0286,Computer Science & Engineering,2025,8.73,Yes,Placed,Deloitte,Software Engineer,10.36,Bangalore
+STU0287,Information Technology,2026,8.85,Yes,Unplaced,,,,
+STU0288,Computer Science & Engineering,2023,8.47,Yes,Placed,Wipro,Software Engineer,4.25,Pune
+STU0289,Computer Science & Engineering,2024,7.41,No,Placed,Infosys,Data Analyst,6.68,Bangalore
+STU0290,Civil Engineering,2025,7.58,No,Placed,IBM,Software Engineer,10.97,Bangalore
+STU0291,Computer Science & Engineering,2025,8.81,Yes,Placed,Accenture,Software Engineer,5.19,Chennai
+STU0292,Information Technology,2023,8.79,Yes,Placed,Accenture,Full Stack Developer,5.04,Bangalore
+STU0293,Electronics & Communication,2023,8.04,Yes,Placed,Cisco,Software Engineer,15.59,Bangalore
+STU0294,Electronics & Communication,2024,7.5,Yes,Placed,TCS,Software Engineer,4.7,Bangalore
+STU0295,Information Technology,2026,7.91,Yes,Placed,JP Morgan,Software Engineer,16.64,Chennai
+STU0296,Information Technology,2025,7.52,Yes,Placed,IBM,Software Engineer,6.55,Pune
+STU0297,Civil Engineering,2024,7.76,Yes,Placed,TCS,Cloud Associate,6.51,Hyderabad
+STU0298,Computer Science & Engineering,2025,7.03,No,Unplaced,,,,
+STU0299,Mechanical Engineering,2025,7.02,No,Unplaced,,,,
+STU0300,Mechanical Engineering,2026,7.47,No,Unplaced,,,,
+STU0301,Computer Science & Engineering,2024,8.48,Yes,Placed,Wipro,DevOps Engineer,5.9,Pune
+STU0302,Information Technology,2025,8.04,Yes,Placed,Capgemini,Data Analyst,8.1,Bangalore
+STU0303,Mechanical Engineering,2026,8.08,Yes,Unplaced,,,,
+STU0304,Computer Science & Engineering,2025,7.6,Yes,Placed,Capgemini,Business Analyst,6.46,Hyderabad
+STU0305,Computer Science & Engineering,2024,7.84,Yes,Placed,Wipro,Full Stack Developer,6.16,Bangalore
+STU0306,Mechanical Engineering,2024,7.84,No,Placed,Cognizant,Full Stack Developer,5.77,Bangalore
+STU0307,Computer Science & Engineering,2026,8.54,Yes,Placed,Deloitte,Cloud Associate,8.13,Pune
+STU0308,Computer Science & Engineering,2026,7.69,Yes,Placed,Cisco,Systems Engineer,17.32,Chennai
+STU0309,Information Technology,2025,6.0,Yes,Placed,TCS,Systems Engineer,5.76,Chennai
+STU0310,Information Technology,2025,7.79,Yes,Placed,TCS,Systems Engineer,6.94,Chennai
+STU0311,Civil Engineering,2024,8.44,Yes,Placed,Cognizant,Cloud Associate,7.51,Noida
+STU0312,Computer Science & Engineering,2025,8.5,Yes,Unplaced,,,,
+STU0313,Electronics & Communication,2026,6.81,No,Unplaced,,,,
+STU0314,Mechanical Engineering,2024,7.42,Yes,Placed,Microsoft,Software Engineer,20.57,Chennai
+STU0315,Mechanical Engineering,2025,7.45,Yes,Placed,Accenture,Software Engineer,7.25,Pune
+STU0316,Electronics & Communication,2026,9.22,Yes,Placed,Google,Software Engineer,34.56,Pune
+STU0317,Mechanical Engineering,2026,7.5,No,Placed,Accenture,DevOps Engineer,8.1,Bangalore
+STU0318,Civil Engineering,2025,6.67,Yes,Placed,Infosys,Business Analyst,4.98,Bangalore
+STU0319,Computer Science & Engineering,2024,9.72,Yes,Placed,TCS,Full Stack Developer,6.35,Bangalore
+STU0320,Electronics & Communication,2023,8.47,Yes,Placed,IBM,Full Stack Developer,10.15,Bangalore
+STU0321,Information Technology,2025,7.87,Yes,Placed,Accenture,Software Engineer,8.67,Bangalore
+STU0322,Mechanical Engineering,2026,6.62,Yes,Placed,Wipro,Data Analyst,6.51,Hyderabad
+STU0323,Mechanical Engineering,2023,6.0,Yes,Placed,Microsoft,QA Engineer,26.7,Gurgaon
+STU0324,Information Technology,2025,7.67,No,Unplaced,,,,
+STU0325,Electronics & Communication,2023,7.8,Yes,Placed,Wipro,Software Engineer,4.88,Hyderabad
+STU0326,Computer Science & Engineering,2024,7.62,Yes,Placed,Accenture,Software Engineer,7.8,Noida
+STU0327,Electronics & Communication,2024,8.6,No,Placed,Deloitte,Cloud Associate,8.49,Chennai
+STU0328,Civil Engineering,2023,7.48,No,Unplaced,,,,
+STU0329,Information Technology,2025,7.91,Yes,Unplaced,,,,
+STU0330,Electronics & Communication,2026,7.91,Yes,Placed,Deloitte,Software Engineer,10.28,Bangalore
+STU0331,Mechanical Engineering,2026,8.79,Yes,Placed,Deloitte,Systems Engineer,10.11,Hyderabad
+STU0332,Computer Science & Engineering,2023,7.82,Yes,Placed,Accenture,Software Engineer,7.77,Hyderabad
+STU0333,Computer Science & Engineering,2024,8.15,Yes,Placed,Cognizant,Full Stack Developer,7.57,Hyderabad
+STU0334,Computer Science & Engineering,2025,6.54,No,Unplaced,,,,
+STU0335,Computer Science & Engineering,2026,8.15,Yes,Placed,Wipro,Software Engineer,6.51,Bangalore
+STU0336,Electronics & Communication,2023,8.01,Yes,Placed,Wipro,Full Stack Developer,4.47,Bangalore
+STU0337,Computer Science & Engineering,2025,7.35,No,Unplaced,,,,
+STU0338,Civil Engineering,2023,8.03,Yes,Placed,Infosys,Data Analyst,6.51,Chennai
+STU0339,Mechanical Engineering,2023,7.61,No,Unplaced,,,,
+STU0340,Computer Science & Engineering,2025,7.53,Yes,Placed,Accenture,Data Analyst,8.34,Hyderabad
+STU0341,Information Technology,2026,6.88,No,Placed,Deloitte,Software Engineer,8.25,Pune
+STU0342,Computer Science & Engineering,2025,7.93,No,Placed,TCS,Software Engineer,4.99,Pune
+STU0343,Electronics & Communication,2024,7.87,Yes,Placed,Wipro,Software Engineer,4.37,Bangalore
+STU0344,Electronics & Communication,2026,8.29,Yes,Placed,Accenture,Full Stack Developer,6.89,Bangalore
+STU0345,Electronics & Communication,2026,8.37,Yes,Unplaced,,,,
+STU0346,Computer Science & Engineering,2024,8.99,Yes,Placed,Accenture,Data Analyst,8.31,Bangalore
+STU0347,Mechanical Engineering,2025,7.86,No,Unplaced,,,,
+STU0348,Mechanical Engineering,2026,7.47,No,Unplaced,,,,
+STU0349,Electronics & Communication,2024,8.75,Yes,Placed,Infosys,Systems Engineer,6.8,Bangalore
+STU0350,Computer Science & Engineering,2023,7.48,Yes,Placed,Amazon,Cloud Associate,27.34,Bangalore
+STU0351,Information Technology,2025,7.78,Yes,Unplaced,,,,
+STU0352,Information Technology,2026,8.9,Yes,Placed,Google,QA Engineer,29.51,Hyderabad
+STU0353,Computer Science & Engineering,2026,8.22,Yes,Placed,Accenture,Full Stack Developer,5.21,Pune
+STU0354,Information Technology,2025,7.73,Yes,Placed,Accenture,Systems Engineer,7.9,Hyderabad
+STU0355,Electronics & Communication,2025,9.33,Yes,Placed,Capgemini,Software Engineer,5.86,Hyderabad
+STU0356,Computer Science & Engineering,2023,7.32,Yes,Placed,Infosys,Cloud Associate,5.7,Hyderabad
+STU0357,Electronics & Communication,2023,8.44,No,Unplaced,,,,
+STU0358,Civil Engineering,2024,8.22,Yes,Unplaced,,,,
+STU0359,Computer Science & Engineering,2024,8.11,Yes,Unplaced,,,,
+STU0360,Electronics & Communication,2026,8.05,Yes,Unplaced,,,,
+STU0361,Information Technology,2025,8.27,Yes,Placed,Infosys,Systems Engineer,5.45,Hyderabad
+STU0362,Computer Science & Engineering,2024,7.92,Yes,Placed,Deloitte,Software Engineer,8.91,Hyderabad
+STU0363,Electronics & Communication,2024,7.88,Yes,Placed,Cisco,Cloud Associate,21.36,Pune
+STU0364,Civil Engineering,2026,8.52,Yes,Unplaced,,,,
+STU0365,Information Technology,2026,8.45,Yes,Placed,Capgemini,Data Analyst,6.57,Hyderabad
+STU0366,Civil Engineering,2025,7.5,Yes,Placed,Infosys,Full Stack Developer,6.24,Pune
+STU0367,Computer Science & Engineering,2024,8.6,Yes,Placed,Cognizant,Full Stack Developer,5.78,Hyderabad
+STU0368,Mechanical Engineering,2025,7.65,No,Placed,Capgemini,QA Engineer,5.53,Pune
+STU0369,Information Technology,2023,8.79,Yes,Placed,Wipro,Full Stack Developer,5.9,Pune
+STU0370,Information Technology,2025,7.1,Yes,Placed,Wipro,Software Engineer,7.0,Bangalore
+STU0371,Civil Engineering,2023,6.76,Yes,Placed,Wipro,Full Stack Developer,6.52,Bangalore
+STU0372,Electronics & Communication,2023,7.29,Yes,Placed,Wipro,Software Engineer,6.75,Bangalore
+STU0373,Electronics & Communication,2025,7.18,No,Unplaced,,,,
+STU0374,Information Technology,2026,7.33,Yes,Placed,Infosys,Cloud Associate,5.25,Pune
+STU0375,Computer Science & Engineering,2023,8.63,Yes,Placed,Google,Software Engineer,25.41,Pune
+STU0376,Computer Science & Engineering,2025,7.11,Yes,Placed,Deloitte,Full Stack Developer,7.66,Gurgaon
+STU0377,Civil Engineering,2025,7.72,No,Unplaced,,,,
+STU0378,Information Technology,2025,8.76,Yes,Placed,Accenture,Full Stack Developer,6.24,Hyderabad
+STU0379,Computer Science & Engineering,2024,7.92,Yes,Placed,Wipro,Full Stack Developer,6.26,Chennai
+STU0380,Electronics & Communication,2025,7.95,No,Placed,Deloitte,Full Stack Developer,11.47,Bangalore
+STU0381,Computer Science & Engineering,2023,7.13,No,Unplaced,,,,
+STU0382,Electronics & Communication,2025,7.12,Yes,Placed,Infosys,Data Analyst,6.41,Bangalore
+STU0383,Computer Science & Engineering,2023,8.03,No,Placed,Cisco,Software Engineer,17.51,Bangalore
+STU0384,Computer Science & Engineering,2024,7.82,No,Unplaced,,,,
+STU0385,Computer Science & Engineering,2026,8.13,Yes,Placed,Deloitte,QA Engineer,11.29,Chennai
+STU0386,Electronics & Communication,2024,7.76,No,Placed,TCS,Data Analyst,6.31,Mumbai
+STU0387,Civil Engineering,2026,8.6,Yes,Placed,TCS,Full Stack Developer,4.9,Bangalore
+STU0388,Computer Science & Engineering,2024,9.0,Yes,Placed,Amazon,Cloud Associate,26.34,Pune
+STU0389,Computer Science & Engineering,2025,7.55,No,Unplaced,,,,
+STU0390,Information Technology,2023,7.14,Yes,Placed,Infosys,Data Analyst,6.18,Bangalore
+STU0391,Computer Science & Engineering,2025,7.56,No,Placed,TCS,Cloud Associate,4.88,Bangalore
+STU0392,Computer Science & Engineering,2024,8.21,Yes,Placed,Wipro,QA Engineer,5.55,Hyderabad
+STU0393,Electronics & Communication,2026,7.26,No,Placed,Microsoft,QA Engineer,29.67,Bangalore
+STU0394,Computer Science & Engineering,2024,7.3,Yes,Placed,Accenture,Systems Engineer,5.18,Bangalore
+STU0395,Information Technology,2023,6.39,No,Unplaced,,,,
+STU0396,Computer Science & Engineering,2024,7.15,Yes,Placed,Oracle,Full Stack Developer,18.66,Pune
+STU0397,Mechanical Engineering,2026,8.95,Yes,Placed,Microsoft,Software Engineer,29.61,Pune
+STU0398,Computer Science & Engineering,2025,8.27,Yes,Placed,TCS,Data Analyst,4.32,Hyderabad
+STU0399,Computer Science & Engineering,2023,7.22,Yes,Unplaced,,,,
+STU0400,Mechanical Engineering,2024,8.3,Yes,Placed,Wipro,QA Engineer,4.84,Noida
+STU0401,Information Technology,2024,7.49,Yes,Unplaced,,,,
+STU0402,Computer Science & Engineering,2024,6.0,No,Placed,Capgemini,Software Engineer,7.35,Hyderabad
+STU0403,Computer Science & Engineering,2024,8.22,Yes,Placed,Infosys,Data Analyst,6.21,Bangalore
+STU0404,Computer Science & Engineering,2026,8.4,Yes,Placed,Infosys,Data Analyst,6.69,Bangalore
+STU0405,Mechanical Engineering,2024,8.24,Yes,Placed,Accenture,Data Analyst,5.22,Bangalore
+STU0406,Information Technology,2024,7.67,Yes,Unplaced,,,,
+STU0407,Information Technology,2024,7.64,Yes,Placed,Microsoft,Software Engineer,23.99,Hyderabad
+STU0408,Information Technology,2023,8.67,Yes,Placed,JP Morgan,Software Engineer,19.24,Bangalore
+STU0409,Civil Engineering,2023,7.43,Yes,Placed,Amazon,DevOps Engineer,22.62,Pune
+STU0410,Computer Science & Engineering,2023,7.06,No,Placed,TCS,Business Analyst,6.27,Bangalore
+STU0411,Mechanical Engineering,2026,9.15,Yes,Placed,JP Morgan,Data Analyst,16.12,Chennai
+STU0412,Electronics & Communication,2023,7.96,No,Placed,Wipro,Software Engineer,6.19,Bangalore
+STU0413,Electronics & Communication,2023,7.79,Yes,Unplaced,,,,
+STU0414,Mechanical Engineering,2025,7.76,Yes,Unplaced,,,,
+STU0415,Information Technology,2025,8.33,No,Placed,Cognizant,Systems Engineer,4.64,Bangalore
+STU0416,Computer Science & Engineering,2024,8.15,Yes,Placed,JP Morgan,QA Engineer,19.01,Pune
+STU0417,Civil Engineering,2026,7.97,Yes,Placed,Wipro,Business Analyst,6.23,Pune
+STU0418,Computer Science & Engineering,2026,8.62,No,Placed,Wipro,Software Engineer,4.82,Hyderabad
+STU0419,Computer Science & Engineering,2025,7.4,No,Unplaced,,,,
+STU0420,Computer Science & Engineering,2025,7.78,No,Placed,Infosys,Cloud Associate,7.14,Chennai
+STU0421,Computer Science & Engineering,2025,8.38,Yes,Placed,Deloitte,Data Analyst,10.93,Bangalore
+STU0422,Information Technology,2024,6.76,Yes,Placed,Capgemini,Data Analyst,6.53,Bangalore
+STU0423,Computer Science & Engineering,2023,9.27,Yes,Placed,Deloitte,Software Engineer,8.42,Noida
+STU0424,Electronics & Communication,2026,8.14,No,Placed,Cognizant,QA Engineer,6.63,Pune
+STU0425,Information Technology,2025,7.01,Yes,Placed,IBM,Software Engineer,11.33,Hyderabad
+STU0426,Information Technology,2026,6.82,No,Placed,TCS,QA Engineer,6.65,Bangalore
+STU0427,Electronics & Communication,2023,7.38,No,Placed,Cognizant,QA Engineer,4.9,Noida
+STU0428,Information Technology,2024,7.8,Yes,Placed,Google,Data Analyst,26.21,Pune
+STU0429,Computer Science & Engineering,2024,7.18,Yes,Placed,TCS,Systems Engineer,6.3,Hyderabad
+STU0430,Mechanical Engineering,2023,8.64,Yes,Placed,Cognizant,Data Analyst,6.06,Bangalore
+STU0431,Electronics & Communication,2024,6.23,No,Placed,IBM,Data Analyst,7.81,Hyderabad
+STU0432,Electronics & Communication,2023,8.28,No,Placed,Accenture,Software Engineer,8.28,Bangalore
+STU0433,Computer Science & Engineering,2023,6.83,Yes,Placed,JP Morgan,Software Engineer,15.61,Pune
+STU0434,Civil Engineering,2025,7.31,Yes,Unplaced,,,,
+STU0435,Mechanical Engineering,2026,7.94,Yes,Placed,Capgemini,Full Stack Developer,6.02,Bangalore
+STU0436,Computer Science & Engineering,2025,6.22,No,Unplaced,,,,
+STU0437,Information Technology,2026,7.78,Yes,Placed,Accenture,Software Engineer,6.97,Pune
+STU0438,Computer Science & Engineering,2023,8.96,Yes,Placed,TCS,Data Analyst,5.0,Pune
+STU0439,Computer Science & Engineering,2023,7.52,No,Placed,Infosys,Data Analyst,5.69,Noida
+STU0440,Computer Science & Engineering,2024,8.87,Yes,Placed,Accenture,Data Analyst,8.57,Bangalore
+STU0441,Mechanical Engineering,2024,7.73,Yes,Placed,IBM,DevOps Engineer,8.44,Bangalore
+STU0442,Electronics & Communication,2026,7.12,Yes,Placed,IBM,Cloud Associate,10.63,Bangalore
+STU0443,Computer Science & Engineering,2026,6.74,Yes,Placed,TCS,Software Engineer,4.11,Bangalore
+STU0444,Mechanical Engineering,2023,9.0,Yes,Placed,Amazon,Systems Engineer,29.6,Pune
+STU0445,Computer Science & Engineering,2024,8.13,Yes,Placed,IBM,QA Engineer,7.07,Pune
+STU0446,Electronics & Communication,2023,7.53,Yes,Placed,Cognizant,Software Engineer,6.85,Bangalore
+STU0447,Information Technology,2023,6.81,Yes,Placed,Deloitte,Business Analyst,8.9,Hyderabad
+STU0448,Information Technology,2025,7.57,Yes,Placed,Deloitte,Data Analyst,10.18,Chennai
+STU0449,Information Technology,2024,8.31,Yes,Placed,Google,Cloud Associate,32.43,Bangalore
+STU0450,Computer Science & Engineering,2024,9.21,Yes,Placed,Google,Business Analyst,32.25,Hyderabad
+STU0451,Computer Science & Engineering,2024,8.24,Yes,Placed,TCS,Software Engineer,6.14,Hyderabad
+STU0452,Information Technology,2024,7.28,Yes,Unplaced,,,,
+STU0453,Computer Science & Engineering,2026,6.6,Yes,Unplaced,,,,
+STU0454,Electronics & Communication,2025,7.04,No,Placed,Accenture,Software Engineer,6.3,Hyderabad
+STU0455,Information Technology,2025,6.56,Yes,Placed,Capgemini,Systems Engineer,8.08,Pune
+STU0456,Computer Science & Engineering,2025,6.95,Yes,Placed,Accenture,Data Analyst,6.27,Gurgaon
+STU0457,Civil Engineering,2025,7.07,No,Unplaced,,,,
+STU0458,Mechanical Engineering,2026,7.2,Yes,Placed,Infosys,Full Stack Developer,4.59,Hyderabad
+STU0459,Information Technology,2024,6.65,Yes,Placed,Oracle,Software Engineer,18.72,Mumbai
+STU0460,Computer Science & Engineering,2025,7.5,Yes,Unplaced,,,,
+STU0461,Computer Science & Engineering,2026,9.0,Yes,Placed,Cisco,Software Engineer,17.08,Hyderabad
+STU0462,Mechanical Engineering,2024,6.46,No,Unplaced,,,,
+STU0463,Information Technology,2026,6.64,Yes,Placed,Cognizant,DevOps Engineer,7.94,Chennai
+STU0464,Information Technology,2025,7.3,Yes,Placed,Wipro,Data Analyst,5.94,Gurgaon
+STU0465,Information Technology,2026,7.17,Yes,Placed,Accenture,Full Stack Developer,7.39,Chennai
+STU0466,Information Technology,2023,7.51,Yes,Placed,Google,Business Analyst,28.57,Bangalore
+STU0467,Computer Science & Engineering,2024,7.79,No,Unplaced,,,,
+STU0468,Mechanical Engineering,2024,6.69,No,Unplaced,,,,
+STU0469,Computer Science & Engineering,2023,9.06,Yes,Placed,Cisco,Software Engineer,19.81,Hyderabad
+STU0470,Electronics & Communication,2025,9.42,Yes,Placed,JP Morgan,Cloud Associate,16.34,Hyderabad
+STU0471,Mechanical Engineering,2023,8.68,Yes,Placed,Wipro,Business Analyst,5.26,Pune
+STU0472,Computer Science & Engineering,2026,7.44,Yes,Placed,Accenture,Cloud Associate,5.97,Chennai
+STU0473,Computer Science & Engineering,2023,8.17,Yes,Placed,TCS,Software Engineer,6.18,Bangalore
+STU0474,Civil Engineering,2025,7.87,No,Unplaced,,,,
+STU0475,Civil Engineering,2023,7.2,No,Unplaced,,,,
+STU0476,Electronics & Communication,2024,7.35,Yes,Unplaced,,,,
+STU0477,Electronics & Communication,2025,7.93,No,Placed,Microsoft,DevOps Engineer,23.89,Bangalore
+STU0478,Information Technology,2025,7.2,No,Unplaced,,,,
+STU0479,Information Technology,2023,7.92,Yes,Placed,Google,Software Engineer,29.43,Hyderabad
+STU0480,Electronics & Communication,2023,7.26,Yes,Placed,Infosys,Software Engineer,5.67,Pune
+STU0481,Information Technology,2026,8.14,Yes,Unplaced,,,,
+STU0482,Information Technology,2026,6.39,Yes,Placed,Accenture,Software Engineer,8.84,Hyderabad
+STU0483,Electronics & Communication,2024,8.16,No,Unplaced,,,,
+STU0484,Information Technology,2023,8.88,Yes,Placed,Microsoft,Software Engineer,21.4,Pune
+STU0485,Information Technology,2026,7.23,No,Unplaced,,,,
+STU0486,Computer Science & Engineering,2024,7.07,Yes,Placed,Accenture,Systems Engineer,7.09,Gurgaon
+STU0487,Civil Engineering,2023,8.63,Yes,Placed,Accenture,Data Analyst,5.06,Gurgaon
+STU0488,Electronics & Communication,2026,8.81,Yes,Placed,Infosys,Full Stack Developer,6.91,Chennai
+STU0489,Computer Science & Engineering,2025,7.13,No,Placed,Microsoft,Software Engineer,21.73,Bangalore
+STU0490,Electronics & Communication,2025,7.64,Yes,Placed,Capgemini,Full Stack Developer,7.14,Bangalore
+STU0491,Computer Science & Engineering,2023,8.9,Yes,Placed,Google,Full Stack Developer,28.8,Noida
+STU0492,Electronics & Communication,2025,8.51,Yes,Placed,Wipro,DevOps Engineer,4.78,Mumbai
+STU0493,Information Technology,2024,7.44,Yes,Placed,JP Morgan,Software Engineer,18.74,Pune
+STU0494,Information Technology,2023,7.44,Yes,Placed,Cognizant,Software Engineer,7.74,Chennai
+STU0495,Computer Science & Engineering,2024,6.8,Yes,Placed,Cisco,Software Engineer,15.82,Hyderabad
+STU0496,Computer Science & Engineering,2025,8.23,Yes,Placed,Accenture,Full Stack Developer,5.71,Hyderabad
+STU0497,Computer Science & Engineering,2023,7.74,Yes,Placed,Cognizant,Software Engineer,5.27,Bangalore
+STU0498,Information Technology,2025,7.57,Yes,Placed,JP Morgan,Business Analyst,19.92,Bangalore
+STU0499,Mechanical Engineering,2024,7.3,No,Unplaced,,,,
+STU0500,Information Technology,2023,8.09,No,Unplaced,,,,
+STU0501,Information Technology,2024,8.33,Yes,Placed,Cognizant,Full Stack Developer,6.93,Bangalore
+STU0502,Electronics & Communication,2023,6.63,No,Placed,Cognizant,Cloud Associate,7.5,Bangalore
+STU0503,Mechanical Engineering,2024,8.05,Yes,Unplaced,,,,
+STU0504,Mechanical Engineering,2024,7.06,Yes,Placed,Accenture,Software Engineer,7.3,Pune
+STU0505,Civil Engineering,2025,8.53,Yes,Placed,Microsoft,Data Analyst,23.66,Pune
+STU0506,Civil Engineering,2024,7.42,Yes,Unplaced,,,,
+STU0507,Information Technology,2024,7.56,Yes,Placed,Wipro,Cloud Associate,4.57,Pune
+STU0508,Electronics & Communication,2026,7.23,No,Unplaced,,,,
+STU0509,Mechanical Engineering,2024,9.44,Yes,Placed,Microsoft,Business Analyst,24.96,Hyderabad
+STU0510,Information Technology,2025,8.73,No,Placed,TCS,Software Engineer,6.21,Bangalore
+STU0511,Electronics & Communication,2024,7.18,Yes,Unplaced,,,,
+STU0512,Computer Science & Engineering,2023,8.87,Yes,Placed,Google,Software Engineer,32.01,Hyderabad
+STU0513,Electronics & Communication,2024,9.45,Yes,Placed,Google,Full Stack Developer,29.47,Hyderabad
+STU0514,Computer Science & Engineering,2024,7.58,Yes,Placed,Deloitte,Systems Engineer,8.86,Hyderabad
+STU0515,Civil Engineering,2023,8.9,Yes,Placed,JP Morgan,QA Engineer,20.67,Pune
+STU0516,Electronics & Communication,2025,7.65,No,Placed,Wipro,Full Stack Developer,5.12,Chennai
+STU0517,Computer Science & Engineering,2025,8.2,Yes,Placed,Wipro,Cloud Associate,5.54,Bangalore
+STU0518,Information Technology,2025,8.83,Yes,Placed,TCS,Software Engineer,5.16,Bangalore
+STU0519,Computer Science & Engineering,2025,6.0,No,Placed,Capgemini,Full Stack Developer,8.39,Gurgaon
+STU0520,Computer Science & Engineering,2024,8.76,No,Placed,Infosys,Data Analyst,7.3,Hyderabad
+STU0521,Information Technology,2025,7.5,Yes,Placed,Wipro,Full Stack Developer,6.67,Hyderabad
+STU0522,Information Technology,2023,6.47,Yes,Unplaced,,,,
+STU0523,Electronics & Communication,2026,6.99,No,Placed,Cisco,DevOps Engineer,16.22,Bangalore
+STU0524,Information Technology,2024,8.34,Yes,Unplaced,,,,
+STU0525,Information Technology,2025,8.14,Yes,Placed,Deloitte,Software Engineer,8.23,Hyderabad
+STU0526,Computer Science & Engineering,2025,7.43,No,Placed,Cognizant,Software Engineer,5.14,Chennai
+STU0527,Mechanical Engineering,2025,7.44,No,Placed,Wipro,Software Engineer,6.67,Hyderabad
+STU0528,Computer Science & Engineering,2026,9.08,Yes,Placed,JP Morgan,Business Analyst,20.13,Hyderabad
+STU0529,Information Technology,2026,8.19,Yes,Placed,Deloitte,DevOps Engineer,9.49,Hyderabad
+STU0530,Computer Science & Engineering,2025,8.15,Yes,Placed,Infosys,DevOps Engineer,5.13,Hyderabad
+STU0531,Computer Science & Engineering,2025,7.34,Yes,Placed,TCS,Software Engineer,6.73,Bangalore
+STU0532,Civil Engineering,2023,8.09,No,Placed,TCS,Business Analyst,4.27,Noida
+STU0533,Computer Science & Engineering,2025,7.77,Yes,Placed,Cognizant,Software Engineer,7.87,Chennai
+STU0534,Civil Engineering,2026,7.22,Yes,Placed,JP Morgan,Full Stack Developer,15.81,Hyderabad
+STU0535,Information Technology,2026,7.48,Yes,Placed,Wipro,Full Stack Developer,4.32,Bangalore
+STU0536,Electronics & Communication,2025,8.73,No,Placed,TCS,Full Stack Developer,6.95,Gurgaon
+STU0537,Information Technology,2023,7.27,Yes,Placed,TCS,DevOps Engineer,6.09,Pune
+STU0538,Information Technology,2023,6.72,Yes,Placed,TCS,QA Engineer,5.5,Chennai
+STU0539,Civil Engineering,2024,6.81,No,Unplaced,,,,
+STU0540,Computer Science & Engineering,2024,6.05,Yes,Placed,Cognizant,Full Stack Developer,7.41,Bangalore
+STU0541,Computer Science & Engineering,2025,8.13,Yes,Placed,Accenture,Software Engineer,6.96,Bangalore
+STU0542,Civil Engineering,2023,8.04,Yes,Placed,Capgemini,Software Engineer,6.44,Bangalore
+STU0543,Computer Science & Engineering,2024,7.53,No,Placed,Wipro,Data Analyst,5.86,Hyderabad
+STU0544,Information Technology,2025,8.63,No,Placed,TCS,Full Stack Developer,6.93,Bangalore
+STU0545,Computer Science & Engineering,2025,9.62,Yes,Placed,Google,Software Engineer,22.73,Bangalore
+STU0546,Mechanical Engineering,2023,8.15,Yes,Placed,Infosys,Business Analyst,5.88,Hyderabad
+STU0547,Computer Science & Engineering,2024,8.58,Yes,Placed,Cisco,Full Stack Developer,19.4,Hyderabad
+STU0548,Electronics & Communication,2024,7.95,Yes,Placed,Wipro,Software Engineer,5.06,Mumbai
+STU0549,Electronics & Communication,2023,8.06,Yes,Placed,Infosys,Cloud Associate,6.89,Bangalore
+STU0550,Electronics & Communication,2024,7.54,Yes,Placed,Cognizant,Software Engineer,5.13,Pune
+STU0551,Information Technology,2025,8.75,Yes,Placed,Capgemini,Systems Engineer,8.16,Pune
+STU0552,Information Technology,2023,6.06,Yes,Unplaced,,,,
+STU0553,Mechanical Engineering,2026,6.75,Yes,Placed,Accenture,Software Engineer,6.62,Bangalore
+STU0554,Information Technology,2026,6.62,Yes,Placed,Deloitte,QA Engineer,8.66,Pune
+STU0555,Information Technology,2023,8.08,Yes,Placed,Accenture,Full Stack Developer,8.54,Chennai
+STU0556,Computer Science & Engineering,2025,7.58,No,Placed,Capgemini,Systems Engineer,8.31,Bangalore
+STU0557,Information Technology,2026,7.23,Yes,Unplaced,,,,
+STU0558,Computer Science & Engineering,2023,9.33,Yes,Placed,JP Morgan,Systems Engineer,17.75,Bangalore
+STU0559,Civil Engineering,2026,8.59,Yes,Placed,IBM,Cloud Associate,6.69,Chennai
+STU0560,Information Technology,2024,7.54,No,Placed,Capgemini,Business Analyst,5.25,Gurgaon
+STU0561,Civil Engineering,2026,7.22,No,Placed,Capgemini,Full Stack Developer,5.39,Bangalore
+STU0562,Computer Science & Engineering,2023,9.74,Yes,Placed,Infosys,Systems Engineer,5.77,Bangalore
+STU0563,Information Technology,2025,8.39,Yes,Placed,Deloitte,Data Analyst,9.5,Bangalore
+STU0564,Information Technology,2023,6.57,Yes,Unplaced,,,,
+STU0565,Information Technology,2026,8.2,Yes,Placed,TCS,Business Analyst,4.55,Noida
+STU0566,Computer Science & Engineering,2023,8.24,Yes,Placed,JP Morgan,Cloud Associate,15.98,Bangalore
+STU0567,Electronics & Communication,2023,8.35,Yes,Placed,Oracle,Cloud Associate,15.63,Bangalore
+STU0568,Civil Engineering,2026,7.71,Yes,Placed,TCS,Software Engineer,4.62,Chennai
+STU0569,Computer Science & Engineering,2026,9.9,Yes,Placed,TCS,Software Engineer,4.03,Bangalore
+STU0570,Electronics & Communication,2025,8.27,Yes,Placed,Microsoft,Software Engineer,23.33,Gurgaon
+STU0571,Electronics & Communication,2023,7.82,Yes,Placed,IBM,Software Engineer,6.73,Bangalore
+STU0572,Computer Science & Engineering,2024,9.03,Yes,Placed,Microsoft,DevOps Engineer,24.99,Bangalore
+STU0573,Mechanical Engineering,2024,8.78,Yes,Placed,JP Morgan,Software Engineer,21.64,Gurgaon
+STU0574,Computer Science & Engineering,2023,6.14,Yes,Placed,TCS,Business Analyst,4.35,Hyderabad
+STU0575,Information Technology,2023,7.76,Yes,Placed,Deloitte,Software Engineer,9.79,Gurgaon
+STU0576,Civil Engineering,2023,7.38,No,Placed,Oracle,Full Stack Developer,13.97,Bangalore
+STU0577,Electronics & Communication,2025,6.96,No,Unplaced,,,,
+STU0578,Computer Science & Engineering,2026,8.55,Yes,Placed,Amazon,Cloud Associate,31.59,Noida
+STU0579,Computer Science & Engineering,2023,7.38,Yes,Unplaced,,,,
+STU0580,Information Technology,2023,7.26,No,Unplaced,,,,
+STU0581,Mechanical Engineering,2023,7.98,No,Unplaced,,,,
+STU0582,Information Technology,2024,7.17,No,Placed,Accenture,Cloud Associate,5.53,Chennai
+STU0583,Information Technology,2024,7.72,Yes,Placed,TCS,Software Engineer,5.28,Bangalore
+STU0584,Electronics & Communication,2023,8.99,Yes,Placed,Google,Full Stack Developer,32.42,Mumbai
+STU0585,Information Technology,2024,8.17,Yes,Placed,Cisco,Data Analyst,19.29,Bangalore
+STU0586,Electronics & Communication,2023,7.95,No,Placed,Capgemini,Software Engineer,7.92,Hyderabad
+STU0587,Information Technology,2024,7.28,Yes,Placed,Cognizant,Business Analyst,6.61,Bangalore
+STU0588,Information Technology,2023,6.81,No,Placed,TCS,Cloud Associate,5.97,Pune
+STU0589,Information Technology,2025,7.54,Yes,Placed,Cisco,DevOps Engineer,14.13,Gurgaon
+STU0590,Computer Science & Engineering,2024,7.06,No,Unplaced,,,,
+STU0591,Computer Science & Engineering,2026,8.38,Yes,Unplaced,,,,
+STU0592,Mechanical Engineering,2025,8.56,Yes,Placed,Amazon,Cloud Associate,27.01,Mumbai
+STU0593,Information Technology,2025,8.08,Yes,Placed,Microsoft,Data Analyst,20.19,Hyderabad
+STU0594,Computer Science & Engineering,2025,7.85,Yes,Placed,Infosys,Full Stack Developer,5.08,Bangalore
+STU0595,Civil Engineering,2026,7.64,No,Unplaced,,,,
+STU0596,Mechanical Engineering,2025,6.92,No,Unplaced,,,,
+STU0597,Computer Science & Engineering,2025,8.69,Yes,Placed,TCS,Full Stack Developer,6.98,Bangalore
+STU0598,Mechanical Engineering,2024,8.35,Yes,Placed,TCS,Software Engineer,4.34,Hyderabad
+STU0599,Electronics & Communication,2026,7.99,No,Unplaced,,,,
+STU0600,Electronics & Communication,2025,6.77,No,Unplaced,,,,
+STU0601,Civil Engineering,2026,6.55,Yes,Placed,Deloitte,Software Engineer,8.03,Hyderabad
+STU0602,Information Technology,2025,6.78,No,Placed,Accenture,Software Engineer,6.34,Chennai
+STU0603,Computer Science & Engineering,2026,7.3,Yes,Placed,Accenture,QA Engineer,5.61,Hyderabad
+STU0604,Information Technology,2024,8.7,Yes,Placed,TCS,Cloud Associate,6.31,Hyderabad
+STU0605,Computer Science & Engineering,2026,8.01,Yes,Placed,Microsoft,Cloud Associate,26.32,Pune
+STU0606,Information Technology,2025,8.11,Yes,Placed,Amazon,Data Analyst,22.28,Noida
+STU0607,Electronics & Communication,2026,7.01,Yes,Unplaced,,,,
+STU0608,Computer Science & Engineering,2024,7.02,Yes,Placed,Wipro,Data Analyst,4.84,Bangalore
+STU0609,Computer Science & Engineering,2026,7.32,No,Unplaced,,,,
+STU0610,Electronics & Communication,2026,7.5,Yes,Placed,Cognizant,Full Stack Developer,7.79,Hyderabad
+STU0611,Civil Engineering,2026,8.95,No,Placed,Wipro,Full Stack Developer,5.99,Bangalore
+STU0612,Computer Science & Engineering,2024,7.77,Yes,Placed,Deloitte,Full Stack Developer,11.0,Bangalore
+STU0613,Computer Science & Engineering,2024,8.25,Yes,Placed,Wipro,Business Analyst,6.54,Hyderabad
+STU0614,Electronics & Communication,2026,8.28,Yes,Placed,Cisco,Software Engineer,19.69,Pune
+STU0615,Electronics & Communication,2024,8.34,Yes,Placed,TCS,Data Analyst,4.87,Bangalore
+STU0616,Computer Science & Engineering,2023,7.95,Yes,Placed,IBM,Software Engineer,11.39,Chennai
+STU0617,Information Technology,2023,8.79,Yes,Placed,TCS,Data Analyst,6.16,Chennai
+STU0618,Electronics & Communication,2023,8.12,Yes,Placed,IBM,Software Engineer,8.36,Pune
+STU0619,Computer Science & Engineering,2023,9.03,Yes,Placed,Google,Data Analyst,34.42,Chennai
+STU0620,Electronics & Communication,2025,8.04,Yes,Placed,Amazon,Software Engineer,29.12,Pune
+STU0621,Computer Science & Engineering,2025,7.36,Yes,Placed,TCS,Full Stack Developer,6.58,Bangalore
+STU0622,Computer Science & Engineering,2023,8.87,Yes,Placed,Microsoft,Software Engineer,29.61,Pune
+STU0623,Computer Science & Engineering,2024,7.48,No,Placed,Deloitte,Data Analyst,10.88,Hyderabad
+STU0624,Civil Engineering,2024,8.59,Yes,Placed,Amazon,Systems Engineer,27.05,Bangalore
+STU0625,Computer Science & Engineering,2026,7.59,Yes,Placed,Wipro,Software Engineer,6.55,Hyderabad
+STU0626,Civil Engineering,2025,7.49,Yes,Placed,Deloitte,Systems Engineer,7.77,Bangalore
+STU0627,Mechanical Engineering,2023,8.22,Yes,Placed,TCS,Software Engineer,4.37,Hyderabad
+STU0628,Electronics & Communication,2026,7.27,Yes,Placed,JP Morgan,Software Engineer,21.08,Pune
+STU0629,Information Technology,2025,9.15,Yes,Placed,Microsoft,Business Analyst,24.13,Pune
+STU0630,Computer Science & Engineering,2026,7.98,Yes,Placed,Capgemini,Software Engineer,6.45,Mumbai
+STU0631,Information Technology,2026,8.78,Yes,Placed,Infosys,Software Engineer,4.56,Noida
+STU0632,Mechanical Engineering,2025,6.0,No,Placed,JP Morgan,Software Engineer,23.67,Hyderabad
+STU0633,Computer Science & Engineering,2026,7.58,Yes,Placed,Deloitte,Cloud Associate,10.82,Pune
+STU0634,Electronics & Communication,2023,7.53,No,Unplaced,,,,
+STU0635,Electronics & Communication,2023,6.7,No,Unplaced,,,,
+STU0636,Information Technology,2024,6.0,No,Unplaced,,,,
+STU0637,Information Technology,2026,7.66,Yes,Placed,IBM,Software Engineer,7.74,Hyderabad
+STU0638,Information Technology,2024,9.12,Yes,Unplaced,,,,
+STU0639,Mechanical Engineering,2023,7.7,No,Placed,TCS,QA Engineer,4.07,Noida
+STU0640,Computer Science & Engineering,2024,8.12,Yes,Placed,Infosys,Data Analyst,4.72,Hyderabad
+STU0641,Computer Science & Engineering,2023,8.57,Yes,Placed,Capgemini,Data Analyst,5.0,Hyderabad
+STU0642,Computer Science & Engineering,2024,8.0,Yes,Placed,Capgemini,Full Stack Developer,7.11,Hyderabad
+STU0643,Computer Science & Engineering,2026,8.04,Yes,Placed,Accenture,QA Engineer,5.27,Bangalore
+STU0644,Information Technology,2025,6.93,No,Placed,Deloitte,Software Engineer,7.7,Hyderabad
+STU0645,Information Technology,2025,8.43,Yes,Unplaced,,,,
+STU0646,Electronics & Communication,2023,8.61,Yes,Placed,Deloitte,Systems Engineer,8.4,Chennai
+STU0647,Information Technology,2025,6.57,No,Unplaced,,,,
+STU0648,Computer Science & Engineering,2024,8.12,Yes,Placed,Amazon,Software Engineer,21.51,Pune
+STU0649,Mechanical Engineering,2024,6.56,Yes,Placed,Wipro,Full Stack Developer,4.63,Pune
+STU0650,Civil Engineering,2023,8.78,Yes,Placed,TCS,Software Engineer,5.66,Bangalore
+STU0651,Computer Science & Engineering,2025,6.77,Yes,Placed,TCS,Software Engineer,5.12,Hyderabad
+STU0652,Mechanical Engineering,2023,8.88,Yes,Placed,Google,Full Stack Developer,26.13,Pune
+STU0653,Information Technology,2026,7.72,Yes,Placed,Capgemini,Business Analyst,8.38,Bangalore
+STU0654,Electronics & Communication,2023,8.31,Yes,Placed,Wipro,Cloud Associate,4.74,Hyderabad
+STU0655,Computer Science & Engineering,2024,8.84,Yes,Placed,Microsoft,Business Analyst,23.06,Hyderabad
+STU0656,Information Technology,2023,7.32,Yes,Placed,Wipro,Data Analyst,5.6,Hyderabad
+STU0657,Information Technology,2025,7.82,Yes,Placed,Google,Data Analyst,32.95,Pune
+STU0658,Computer Science & Engineering,2023,8.04,Yes,Placed,Infosys,QA Engineer,5.41,Pune
+STU0659,Civil Engineering,2025,7.73,Yes,Unplaced,,,,
+STU0660,Mechanical Engineering,2025,6.0,Yes,Unplaced,,,,
+STU0661,Computer Science & Engineering,2025,8.0,Yes,Placed,TCS,Full Stack Developer,6.38,Bangalore
+STU0662,Information Technology,2026,8.45,Yes,Placed,Cognizant,Cloud Associate,6.25,Hyderabad
+STU0663,Electronics & Communication,2024,8.04,Yes,Unplaced,,,,
+STU0664,Information Technology,2026,6.81,No,Placed,TCS,Systems Engineer,5.14,Bangalore
+STU0665,Computer Science & Engineering,2025,6.13,Yes,Placed,Capgemini,Software Engineer,7.03,Bangalore
+STU0666,Computer Science & Engineering,2024,8.39,Yes,Placed,Amazon,Systems Engineer,22.91,Hyderabad
+STU0667,Information Technology,2023,9.49,Yes,Placed,TCS,Systems Engineer,5.81,Hyderabad
+STU0668,Computer Science & Engineering,2026,7.38,Yes,Placed,IBM,Full Stack Developer,11.34,Hyderabad
+STU0669,Electronics & Communication,2026,6.92,No,Placed,Capgemini,Full Stack Developer,7.94,Bangalore
+STU0670,Information Technology,2025,9.19,Yes,Placed,Microsoft,Data Analyst,22.74,Bangalore
+STU0671,Electronics & Communication,2026,8.59,Yes,Placed,Cisco,Full Stack Developer,20.13,Hyderabad
+STU0672,Computer Science & Engineering,2023,7.38,Yes,Placed,Cognizant,Full Stack Developer,7.5,Bangalore
+STU0673,Electronics & Communication,2024,7.51,No,Unplaced,,,,
+STU0674,Information Technology,2024,7.93,Yes,Placed,Cisco,Software Engineer,19.93,Pune
+STU0675,Information Technology,2023,7.45,Yes,Placed,Capgemini,Cloud Associate,7.17,Gurgaon
+STU0676,Computer Science & Engineering,2023,6.1,No,Unplaced,,,,
+STU0677,Mechanical Engineering,2023,8.05,Yes,Placed,IBM,Business Analyst,10.88,Bangalore
+STU0678,Information Technology,2026,7.87,Yes,Placed,Oracle,Full Stack Developer,15.16,Bangalore
+STU0679,Computer Science & Engineering,2024,7.51,Yes,Placed,TCS,Software Engineer,4.2,Bangalore
+STU0680,Electronics & Communication,2026,8.62,No,Placed,Infosys,Full Stack Developer,4.78,Pune
+STU0681,Computer Science & Engineering,2026,6.95,No,Placed,Amazon,Full Stack Developer,30.81,Hyderabad
+STU0682,Computer Science & Engineering,2025,6.0,No,Placed,Cognizant,Data Analyst,7.15,Bangalore
+STU0683,Computer Science & Engineering,2024,7.46,Yes,Placed,Infosys,Software Engineer,6.86,Chennai
+STU0684,Computer Science & Engineering,2025,7.36,Yes,Placed,Oracle,QA Engineer,19.91,Pune
+STU0685,Information Technology,2023,7.64,Yes,Placed,Deloitte,Software Engineer,8.42,Hyderabad
+STU0686,Information Technology,2024,7.62,Yes,Placed,Deloitte,Software Engineer,8.62,Hyderabad
+STU0687,Mechanical Engineering,2025,8.61,Yes,Placed,Accenture,Software Engineer,6.73,Noida
+STU0688,Information Technology,2023,7.61,No,Placed,Wipro,Software Engineer,5.86,Hyderabad
+STU0689,Information Technology,2025,8.26,Yes,Placed,IBM,Full Stack Developer,10.52,Hyderabad
+STU0690,Information Technology,2025,8.05,Yes,Placed,Microsoft,Full Stack Developer,29.22,Hyderabad
+STU0691,Electronics & Communication,2025,7.07,No,Placed,Microsoft,Full Stack Developer,23.85,Bangalore
+STU0692,Electronics & Communication,2025,8.94,Yes,Placed,Accenture,Data Analyst,6.02,Noida
+STU0693,Computer Science & Engineering,2023,7.65,Yes,Placed,IBM,Full Stack Developer,7.41,Pune
+STU0694,Information Technology,2025,7.04,No,Unplaced,,,,
+STU0695,Electronics & Communication,2026,7.59,No,Unplaced,,,,
+STU0696,Computer Science & Engineering,2026,8.24,Yes,Placed,Accenture,Cloud Associate,7.1,Pune
+STU0697,Computer Science & Engineering,2023,6.85,Yes,Placed,Microsoft,QA Engineer,21.83,Bangalore
+STU0698,Electronics & Communication,2025,7.94,No,Placed,Infosys,Software Engineer,5.63,Bangalore
+STU0699,Information Technology,2026,8.52,No,Placed,Capgemini,Software Engineer,4.95,Chennai
+STU0700,Civil Engineering,2026,7.89,No,Placed,TCS,Full Stack Developer,5.29,Gurgaon
+STU0701,Electronics & Communication,2024,8.6,Yes,Placed,Accenture,Business Analyst,7.9,Bangalore
+STU0702,Computer Science & Engineering,2025,8.13,Yes,Placed,Accenture,Full Stack Developer,6.9,Bangalore
+STU0703,Electronics & Communication,2026,9.21,Yes,Placed,Google,Systems Engineer,27.56,Noida
+STU0704,Information Technology,2025,7.59,Yes,Placed,Wipro,Business Analyst,4.46,Mumbai
+STU0705,Mechanical Engineering,2026,6.8,Yes,Placed,JP Morgan,Systems Engineer,14.29,Bangalore
+STU0706,Electronics & Communication,2025,7.97,No,Unplaced,,,,
+STU0707,Electronics & Communication,2025,8.07,Yes,Placed,TCS,Cloud Associate,6.15,Hyderabad
+STU0708,Mechanical Engineering,2024,7.12,Yes,Placed,Cognizant,Cloud Associate,7.78,Bangalore
+STU0709,Civil Engineering,2025,8.15,Yes,Placed,TCS,QA Engineer,6.04,Hyderabad
+STU0710,Computer Science & Engineering,2023,7.85,No,Placed,Capgemini,Software Engineer,5.9,Pune
+STU0711,Computer Science & Engineering,2025,8.27,Yes,Unplaced,,,,
+STU0712,Civil Engineering,2025,6.59,No,Unplaced,,,,
+STU0713,Electronics & Communication,2024,8.61,No,Placed,Cognizant,Cloud Associate,7.34,Bangalore
+STU0714,Electronics & Communication,2024,7.76,No,Unplaced,,,,
+STU0715,Information Technology,2024,6.72,No,Placed,Wipro,Cloud Associate,5.05,Bangalore
+STU0716,Computer Science & Engineering,2024,6.0,No,Unplaced,,,,
+STU0717,Information Technology,2023,8.7,Yes,Placed,Cognizant,Software Engineer,7.07,Pune
+STU0718,Electronics & Communication,2026,8.85,Yes,Placed,Cisco,Software Engineer,15.44,Mumbai
+STU0719,Information Technology,2023,7.74,Yes,Placed,Accenture,Cloud Associate,5.69,Chennai
+STU0720,Mechanical Engineering,2025,7.22,Yes,Placed,Cisco,Full Stack Developer,14.66,Pune
+STU0721,Information Technology,2026,6.55,Yes,Placed,JP Morgan,Software Engineer,21.03,Bangalore
+STU0722,Mechanical Engineering,2026,8.02,Yes,Placed,Capgemini,Data Analyst,7.7,Bangalore
+STU0723,Electronics & Communication,2026,8.86,No,Unplaced,,,,
+STU0724,Electronics & Communication,2023,8.85,Yes,Placed,Accenture,Software Engineer,5.35,Chennai
+STU0725,Computer Science & Engineering,2026,8.95,Yes,Placed,IBM,Data Analyst,8.11,Bangalore
+STU0726,Electronics & Communication,2025,9.9,Yes,Placed,Google,Software Engineer,33.13,Bangalore
+STU0727,Information Technology,2023,7.61,Yes,Placed,Google,Full Stack Developer,25.3,Pune
+STU0728,Electronics & Communication,2024,7.62,No,Unplaced,,,,
+STU0729,Electronics & Communication,2026,7.15,Yes,Placed,Accenture,Software Engineer,5.31,Bangalore
+STU0730,Computer Science & Engineering,2023,7.31,No,Unplaced,,,,
+STU0731,Computer Science & Engineering,2023,8.45,No,Unplaced,,,,
+STU0732,Information Technology,2026,7.77,Yes,Placed,Cognizant,Data Analyst,7.53,Pune
+STU0733,Computer Science & Engineering,2025,8.5,Yes,Placed,Capgemini,Software Engineer,6.56,Bangalore
+STU0734,Computer Science & Engineering,2025,9.25,Yes,Placed,JP Morgan,Full Stack Developer,18.18,Hyderabad
+STU0735,Computer Science & Engineering,2024,9.49,Yes,Placed,Google,Data Analyst,32.99,Bangalore
+STU0736,Information Technology,2023,7.22,Yes,Unplaced,,,,
+STU0737,Information Technology,2025,6.84,No,Unplaced,,,,
+STU0738,Computer Science & Engineering,2023,7.98,No,Placed,TCS,Full Stack Developer,5.6,Mumbai
+STU0739,Electronics & Communication,2026,7.05,Yes,Placed,Capgemini,Systems Engineer,6.7,Hyderabad
+STU0740,Civil Engineering,2024,6.29,No,Unplaced,,,,
+STU0741,Computer Science & Engineering,2024,8.17,Yes,Placed,JP Morgan,Business Analyst,19.16,Noida
+STU0742,Computer Science & Engineering,2023,9.2,Yes,Placed,Microsoft,Software Engineer,24.02,Hyderabad
+STU0743,Information Technology,2026,9.3,Yes,Placed,Microsoft,Software Engineer,25.36,Mumbai
+STU0744,Computer Science & Engineering,2025,7.91,Yes,Placed,Infosys,Full Stack Developer,4.9,Bangalore
+STU0745,Civil Engineering,2026,8.28,Yes,Placed,Cognizant,Data Analyst,7.59,Noida
+STU0746,Computer Science & Engineering,2023,7.8,Yes,Placed,Cognizant,Cloud Associate,5.33,Bangalore
+STU0747,Information Technology,2024,8.63,Yes,Placed,Infosys,Software Engineer,4.85,Pune
+STU0748,Information Technology,2026,8.3,Yes,Placed,Deloitte,Data Analyst,11.35,Bangalore
+STU0749,Computer Science & Engineering,2026,8.66,Yes,Placed,Wipro,DevOps Engineer,6.3,Bangalore
+STU0750,Information Technology,2025,7.46,Yes,Placed,TCS,Full Stack Developer,5.25,Bangalore
+STU0751,Electronics & Communication,2024,7.7,No,Placed,Infosys,Full Stack Developer,5.97,Bangalore
+STU0752,Information Technology,2026,8.52,Yes,Placed,Accenture,Software Engineer,7.42,Bangalore
+STU0753,Mechanical Engineering,2023,7.83,Yes,Placed,TCS,Systems Engineer,4.3,Pune
+STU0754,Information Technology,2023,7.42,Yes,Placed,IBM,Business Analyst,10.68,Hyderabad
+STU0755,Electronics & Communication,2023,6.95,No,Unplaced,,,,
+STU0756,Information Technology,2025,8.23,Yes,Placed,Accenture,Full Stack Developer,7.96,Pune
+STU0757,Computer Science & Engineering,2025,6.75,Yes,Placed,Deloitte,Cloud Associate,8.48,Gurgaon
+STU0758,Information Technology,2025,8.83,Yes,Placed,Deloitte,Software Engineer,7.71,Bangalore
+STU0759,Computer Science & Engineering,2026,7.45,No,Placed,Amazon,Data Analyst,23.19,Hyderabad
+STU0760,Electronics & Communication,2024,7.35,No,Placed,Microsoft,QA Engineer,28.16,Bangalore
+STU0761,Civil Engineering,2025,9.31,Yes,Unplaced,,,,
+STU0762,Electronics & Communication,2025,7.65,No,Placed,Infosys,QA Engineer,6.24,Chennai
+STU0763,Electronics & Communication,2024,8.43,Yes,Placed,Deloitte,Systems Engineer,10.06,Bangalore
+STU0764,Computer Science & Engineering,2023,8.63,Yes,Placed,Google,Systems Engineer,25.19,Mumbai
+STU0765,Electronics & Communication,2026,7.19,Yes,Placed,Cognizant,Systems Engineer,5.44,Hyderabad
+STU0766,Information Technology,2026,7.35,No,Placed,Deloitte,Business Analyst,10.92,Chennai
+STU0767,Computer Science & Engineering,2023,7.42,Yes,Placed,Cisco,Full Stack Developer,21.09,Bangalore
+STU0768,Information Technology,2023,6.73,No,Placed,IBM,Business Analyst,8.62,Chennai
+STU0769,Civil Engineering,2024,8.52,Yes,Placed,Oracle,Software Engineer,12.68,Bangalore
+STU0770,Information Technology,2025,7.66,Yes,Placed,Infosys,Software Engineer,7.13,Hyderabad
+STU0771,Electronics & Communication,2026,9.37,Yes,Placed,Cisco,Software Engineer,20.52,Hyderabad
+STU0772,Computer Science & Engineering,2026,6.06,Yes,Placed,TCS,Full Stack Developer,6.08,Chennai
+STU0773,Information Technology,2025,6.89,Yes,Placed,Cognizant,QA Engineer,6.34,Chennai
+STU0774,Information Technology,2023,7.61,No,Placed,TCS,Software Engineer,4.4,Gurgaon
+STU0775,Information Technology,2026,6.0,Yes,Placed,Deloitte,Cloud Associate,11.83,Hyderabad
+STU0776,Computer Science & Engineering,2023,7.22,Yes,Placed,TCS,Software Engineer,4.24,Hyderabad
+STU0777,Electronics & Communication,2024,8.51,No,Placed,Cognizant,Data Analyst,6.05,Bangalore
+STU0778,Mechanical Engineering,2023,8.65,Yes,Placed,Capgemini,Business Analyst,7.32,Hyderabad
+STU0779,Information Technology,2025,7.41,No,Placed,JP Morgan,Software Engineer,15.25,Pune
+STU0780,Mechanical Engineering,2026,8.08,Yes,Placed,Accenture,Full Stack Developer,6.62,Bangalore
+STU0781,Computer Science & Engineering,2023,6.89,Yes,Placed,Cisco,Software Engineer,15.7,Gurgaon
+STU0782,Electronics & Communication,2023,8.97,Yes,Placed,Microsoft,Systems Engineer,23.15,Bangalore
+STU0783,Information Technology,2024,7.23,Yes,Placed,IBM,Data Analyst,9.27,Chennai
+STU0784,Information Technology,2026,8.36,Yes,Placed,Google,Systems Engineer,30.14,Bangalore
+STU0785,Computer Science & Engineering,2026,6.48,No,Unplaced,,,,
+STU0786,Electronics & Communication,2024,7.71,Yes,Unplaced,,,,
+STU0787,Computer Science & Engineering,2025,8.29,Yes,Placed,Deloitte,Data Analyst,11.42,Noida
+STU0788,Computer Science & Engineering,2024,8.07,No,Placed,Infosys,Software Engineer,5.59,Bangalore
+STU0789,Civil Engineering,2026,7.93,No,Unplaced,,,,
+STU0790,Computer Science & Engineering,2026,6.93,Yes,Placed,Wipro,Full Stack Developer,6.07,Bangalore
+STU0791,Computer Science & Engineering,2026,7.36,Yes,Placed,Wipro,Software Engineer,4.66,Hyderabad
+STU0792,Computer Science & Engineering,2026,6.77,No,Placed,TCS,QA Engineer,5.61,Bangalore
+STU0793,Electronics & Communication,2023,7.5,No,Placed,Cognizant,Software Engineer,6.17,Bangalore
+STU0794,Electronics & Communication,2024,8.5,Yes,Placed,Capgemini,DevOps Engineer,7.72,Bangalore
+STU0795,Information Technology,2024,8.06,Yes,Placed,TCS,Software Engineer,5.26,Gurgaon
+STU0796,Mechanical Engineering,2024,8.27,No,Placed,Deloitte,Full Stack Developer,11.74,Hyderabad
+STU0797,Information Technology,2026,6.42,Yes,Placed,Accenture,Full Stack Developer,7.47,Mumbai
+STU0798,Computer Science & Engineering,2024,7.17,Yes,Placed,Accenture,Cloud Associate,6.05,Mumbai
+STU0799,Electronics & Communication,2025,9.22,Yes,Placed,Infosys,Software Engineer,5.13,Pune
+STU0800,Computer Science & Engineering,2026,8.17,Yes,Placed,TCS,Full Stack Developer,5.23,Hyderabad

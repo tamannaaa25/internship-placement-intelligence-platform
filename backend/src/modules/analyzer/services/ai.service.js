@@ -72,7 +72,7 @@ const generateMockAnalysis = (resumeText, jdText) => {
     "React",
     "Node.js",
     "Express",
-    "PostgreSQL",
+    "MySQL",
     "MongoDB",
     "Docker",
     "AWS",
@@ -108,7 +108,7 @@ const generateMockAnalysis = (resumeText, jdText) => {
   // Default fallback if no skills detected in JD
   if (matchedSkills.length === 0 && missingSkills.length === 0) {
     matchedSkills.push("Git", "JavaScript");
-    missingSkills.push("Docker", "PostgreSQL");
+    missingSkills.push("Docker", "MySQL");
   }
 
   const matchRatio = matchedSkills.length / (matchedSkills.length + missingSkills.length || 1);
@@ -116,7 +116,7 @@ const generateMockAnalysis = (resumeText, jdText) => {
 
   const mockResources = {
     Docker: ["Docker Official Docs", "Docker Crash Course by Traversy Media"],
-    PostgreSQL: ["PostgreSQL Tutorial", "SQL Zoo Practice"],
+    MySQL: ["MySQL Tutorial", "SQL Zoo Practice"],
     AWS: ["AWS Certified Cloud Practitioner Guide", "freeCodeCamp AWS Course"],
     "System Design": ["Grokking the System Design Interview", "System Design Primer by Donne Martin"],
     "CI/CD": ["GitHub Actions Tutorial", "DevOps Roadmap Guide"],

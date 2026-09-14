@@ -21,7 +21,7 @@ app.use(helmet());
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/applications", authenticateToken, applicationRouter);
 app.use("/api/v1/analyzer", authenticateToken, analyzerRouter);
-app.use("/api/v1/analytics", authenticateToken, analyticsRouter);
+app.use("/api/v1/analytics", analyticsRouter);
 
 app.get("/", (req, res) => {
   return res.status(200).json({

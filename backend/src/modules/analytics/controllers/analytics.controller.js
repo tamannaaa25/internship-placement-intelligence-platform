@@ -14,6 +14,22 @@ const getSummary = async (req, res, next) => {
   }
 };
 
+const getIntelligence = async (req, res, next) => {
+  try {
+    const filters = req.query;
+    const result = await analyticsService.getIntelligence(filters);
+
+    return res.status(200).json({
+      success: true,
+      ...result,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   getSummary,
+  getIntelligence,
 };
+

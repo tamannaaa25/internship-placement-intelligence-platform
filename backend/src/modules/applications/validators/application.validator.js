@@ -1,6 +1,6 @@
 const { z } = require("zod");
 
-// Define enums corresponding to Prisma status enums
+// Application status enums
 const StatusEnum = z.enum([
   "APPLIED",
   "OA_SCHEDULED",

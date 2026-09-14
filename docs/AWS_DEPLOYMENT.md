@@ -1,47 +1,31 @@
 # AWS Deployment Guide
 
-This document details the configuration and step-by-step processes to deploy the **Internship & Placement Intelligence Platform** on Amazon Web Services (AWS) using **Amazon RDS** for PostgreSQL, **Amazon S3** for resume file storage, and **Amazon EC2** for application hosting.
+This document details the configuration and step-by-step processes to deploy the **Internship & Placement Intelligence Platform** on Amazon Web Services (AWS) using **MongoDB Atlas / DocumentDB** for operational data, **Amazon RDS (MySQL)** for analytical data, **Amazon S3** for resume file storage, and **Amazon EC2** for application hosting.
 
 ---
 
-## 1. Amazon RDS (PostgreSQL) Setup
+## 1. Databases Setup: MongoDB Atlas & Amazon RDS (MySQL)
 
-We migrate the PostgreSQL database from a local container/local host to a managed AWS RDS instance.
+### 1.1 MongoDB Atlas Setup (Operational Database)
+1. Log in to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+2. Create an M0 Free Tier Cluster in your preferred AWS region.
+3. Add a database user with read/write privileges and allow access from EC2 IP.
+4. Copy the connection string:
+   ```text
+   MONGODB_URI="mongodb+srv://<user>:<password>@cluster.mongodb.net/internship_platform?retryWrites=true&w=majority"
+   ```
 
-### Step-by-Step Provisioning:
+### 1.2 Amazon RDS (MySQL) Setup (Analytics Database)
 1. **Navigate to AWS Console**: Go to the RDS Dashboard and click **Create Database**.
-2. **Choose Database Creation Method**: Select **Standard Create**.
-3. **Engine Options**: Choose **PostgreSQL** (version `15.x` or `16.x` matches development best).
-4. **Templates**: Select **Free Tier** (for testing/development) or **Dev/Test**.
-5. **Settings**:
-   - **DB Instance Identifier**: `placement-intelligence-db`
-   - **Master Username**: `postgres` (or a custom master user)
+2. **Engine Options**: Choose **MySQL** (version `8.0` or `8.4`).
+3. **Templates**: Select **Free Tier** (for testing/development).
+4. **Settings**:
+   - **DB Instance Identifier**: `placement-analytics-db`
+   - **Master Username**: `root` (or custom admin)
    - **Password**: Set a secure master password.
-6. **Instance Configuration**: Choose `db.t3.micro` or `db.t4g.micro` (eligible for Free Tier).
-7. **Storage**: Allocate `20 GiB` GP3 storage (enable autoscaling if needed).
-8. **Connectivity**:
-   - **Virtual Private Cloud (VPC)**: Select the default VPC or your application VPC.
-   - **Public Access**: Select **No** (best security practice; keep database private).
-   - **VPC Security Group**: Create a new Security Group named `rds-postgres-sg`.
-9. **Database Port**: Standard `5432`.
-10. **Additional Configuration**: Set the **Initial database name** to `internship_platform`.
-11. **Create Database**: Click **Create database** and wait for status to turn to *Available*.
-
-### Security Group Inbound Rule Configuration:
-To allow the EC2 application instance to talk to the RDS instance:
-1. Open the Security Group `rds-postgres-sg` associated with your RDS database.
-2. Under **Inbound Rules**, click **Edit Inbound Rules**.
-3. Add a rule:
-   - **Type**: `PostgreSQL` (Port `5432`)
-   - **Source**: Select the security group of your EC2 instance (e.g., `ec2-web-sg`) or the EC2 private IP subnet range.
-   - **Description**: `Allow inbound traffic from EC2 backend container`.
-4. Save the rules.
-
-### Production DATABASE_URL:
-In your production `.env` file, configure:
-```env
-DATABASE_URL="postgresql://<master_username>:<master_password>@<rds_endpoint_address>:5432/internship_platform?schema=public"
-```
+5. **Database Port**: Standard `3306`.
+6. **Initial Database Name**: Set to `placement_analytics`.
+7. **Security Group**: Allow inbound port `3306` from the EC2 security group.
 
 ---
 
@@ -174,7 +158,12 @@ Create backend and frontend environment files:
 ```env
 PORT=5001
 NODE_ENV=production
-DATABASE_URL="postgresql://postgres:<your_password>@<rds_endpoint>:5432/internship_platform?schema=public"
+MONGODB_URI="mongodb+srv://<user>:<password>@cluster.mongodb.net/internship_platform?retryWrites=true&w=majority"
+MYSQL_HOST="<rds_mysql_endpoint>"
+MYSQL_USER="root"
+MYSQL_PASSWORD="<your_password>"
+MYSQL_DATABASE="placement_analytics"
+MYSQL_PORT=3306
 JWT_SECRET="<generate-random-secret>"
 JWT_EXPIRES_IN=7d
 
@@ -196,13 +185,11 @@ NEXT_PUBLIC_API_URL="http://<ec2-public-ip-address>:5001/api/v1"
 ### Deploying the Stack:
 Using docker compose, spin up the database migrations, backend and frontend services:
 
-1. **Prisma Migrations on RDS**:
-   Run the Prisma migration tool inside the backend directory to sync tables to the AWS RDS database instance:
+1. **MySQL Analytics Initialization on RDS**:
+   Run the automated database setup script to create and seed the analytics tables:
    ```bash
    cd backend
-   # Install dependencies locally to run migrations or use a run-once container
-   npm install
-   npx prisma migrate deploy
+   npm run db:mysql:setup
    cd ..
    ```
 

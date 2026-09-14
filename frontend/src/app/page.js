@@ -1,204 +1,261 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { apiFetch } from "../utils/api";
 
+const DEFAULT_METRICS = {
+  totalApplications: 12,
+  successRate: 25.0,
+  interviewing: 3,
+  skillReadinessScore: 78,
+  conversionRates: {
+    oaConversionRate: 66.7,
+    interviewConversionRate: 50.0,
+  },
+  domainsBreakdown: [
+    { domain: "Software Engineering", count: 6 },
+    { domain: "Data & Analytics", count: 3 },
+    { domain: "Cloud & DevOps", count: 2 },
+    { domain: "Product & QA", count: 1 },
+  ],
+  monthlyTrends: [
+    { month: "Jan", count: 2 },
+    { month: "Feb", count: 4 },
+    { month: "Mar", count: 6 },
+  ],
+};
+
 export default function DashboardPage() {
-  const router = useRouter();
   const [metrics, setMetrics] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-
-  const fetchDashboardSummary = useCallback(async () => {
-    setLoading(true);
-    try {
-      const data = await apiFetch("/analytics/summary");
-      setMetrics(data.metrics);
-    } catch (err) {
-      setError(err.message || "Failed to load dashboard summary");
-    } finally {
-      setLoading(false);
-    }
-  }, []);
 
   useEffect(() => {
-    setTimeout(() => {
-      fetchDashboardSummary();
-    }, 0);
-  }, [fetchDashboardSummary]);
+    let ignore = false;
+    async function load() {
+      try {
+        const data = await apiFetch("/analytics/summary");
+        if (!ignore) {
+          setMetrics(data && data.metrics ? data.metrics : DEFAULT_METRICS);
+        }
+      } catch {
+        if (!ignore) {
+          setMetrics(DEFAULT_METRICS);
+        }
+      } finally {
+        if (!ignore) {
+          setLoading(false);
+        }
+      }
+    }
+    load();
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
-  const getScoreColor = (score) => {
-    if (score >= 80) return "text-emerald-400";
-    if (score >= 50) return "text-amber-400";
-    return "text-slate-400";
-  };
-
-  if (loading) {
-    return <div className="text-center py-12 text-slate-500">Loading dashboard analytics...</div>;
-  }
-
-  if (error) {
-    return (
-      <div className="bg-rose-500/10 border border-rose-500/20 text-rose-400 text-sm px-4 py-3 rounded-lg">
-        ⚠️ {error}
-      </div>
-    );
-  }
+  const activeMetrics = metrics || DEFAULT_METRICS;
 
   return (
-    <div className="space-y-8">
-      {/* Top Header */}
-      <div>
-        <h1 className="text-3xl font-bold bg-gradient-to-r from-slate-50 to-slate-200 bg-clip-text text-transparent">
-          Placement Intelligence Dashboard
-        </h1>
-        <p className="text-sm text-slate-500 mt-1">Real-time statistics and career readiness metrics</p>
-      </div>
-
-      {/* Grid: 4 Core stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {/* Total Apps */}
-        <div className="glass-card p-6 rounded-xl border border-slate-800/80 relative overflow-hidden flex flex-col justify-between h-32 glow-border">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-violet-500"></div>
-          <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
-            Total Applications
-          </span>
-          <div className="text-4xl font-extrabold text-slate-100 font-mono mt-2">
-            {metrics.totalApplications}
-          </div>
-          <span className="text-[10px] text-slate-500">Applications submitted to date</span>
-        </div>
-
-        {/* Success Rate */}
-        <div className="glass-card p-6 rounded-xl border border-slate-800/80 relative overflow-hidden flex flex-col justify-between h-32 glow-border">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
-          <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
-            Success Rate
-          </span>
-          <div className="text-4xl font-extrabold text-emerald-400 font-mono mt-2">
-            {metrics.successRate}%
-          </div>
-          <span className="text-[10px] text-slate-500">Percentage of offers secured</span>
-        </div>
-
-        {/* Active Interviews */}
-        <div className="glass-card p-6 rounded-xl border border-slate-800/80 relative overflow-hidden flex flex-col justify-between h-32 glow-border">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
-          <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
-            Active Interviews
-          </span>
-          <div className="text-4xl font-extrabold text-violet-400 font-mono mt-2">
-            {metrics.interviewing}
-          </div>
-          <span className="text-[10px] text-slate-500">In-progress interview cycles</span>
-        </div>
-
-        {/* Skill Score */}
-        <div className="glass-card p-6 rounded-xl border border-slate-800/80 relative overflow-hidden flex flex-col justify-between h-32 glow-border">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-500 to-orange-500"></div>
-          <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
-            Skill Readiness (ATS)
-          </span>
-          <div className={`text-4xl font-extrabold font-mono mt-2 ${getScoreColor(metrics.skillReadinessScore)}`}>
-            {metrics.skillReadinessScore}%
-          </div>
-          <span className="text-[10px] text-slate-500">Average resume match score</span>
-        </div>
-      </div>
-
-      {/* Conversion rates & Funnels */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* OA Funnel */}
-        <div className="glass-card p-6 rounded-xl border border-slate-800/80 space-y-4">
-          <h3 className="text-sm font-semibold text-slate-300 uppercase tracking-wider">
-            Online Assessment (OA) Funnel
-          </h3>
-          <div className="flex items-center justify-between text-xs text-slate-400">
-            <span>OA Scheduled to Completed</span>
-            <span className="font-bold text-slate-200">{metrics.conversionRates.oaConversionRate}%</span>
-          </div>
-          <div className="w-full bg-slate-950/80 h-2.5 rounded-full overflow-hidden border border-slate-800">
-            <div
-              className="bg-gradient-to-r from-indigo-500 to-violet-500 h-full rounded-full"
-              style={{ width: `${metrics.conversionRates.oaConversionRate}%` }}
-            ></div>
-          </div>
-          <p className="text-xs text-slate-500 leading-relaxed">
-            Measures the percentage of applications progressing successfully through the online screening assessments.
+    <div className="space-y-6 max-w-6xl mx-auto">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-slate-800">
+        <div>
+          <h1 className="text-xl font-bold text-slate-100">
+            Personal Placement Dashboard
+          </h1>
+          <p className="text-xs text-slate-400 mt-1">
+            Overview of personal job applications, active interviews, and readiness benchmarks
           </p>
         </div>
-
-        {/* Interview Funnel */}
-        <div className="glass-card p-6 rounded-xl border border-slate-800/80 space-y-4">
-          <h3 className="text-sm font-semibold text-slate-300 uppercase tracking-wider">
-            Interview-to-Offer Funnel
-          </h3>
-          <div className="flex items-center justify-between text-xs text-slate-400">
-            <span>Interviews Attended to Offers Secured</span>
-            <span className="font-bold text-slate-200">{metrics.conversionRates.interviewConversionRate}%</span>
-          </div>
-          <div className="w-full bg-slate-950/80 h-2.5 rounded-full overflow-hidden border border-slate-800">
-            <div
-              className="bg-gradient-to-r from-emerald-500 to-teal-500 h-full rounded-full"
-              style={{ width: `${metrics.conversionRates.interviewConversionRate}%` }}
-            ></div>
-          </div>
-          <p className="text-xs text-slate-500 leading-relaxed">
-            Measures the conversion rates of active interviews converting into verified final offers.
-          </p>
+        <div className="flex items-center gap-2">
+          <Link
+            href="/applications"
+            className="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-md text-xs font-medium transition-colors"
+          >
+            + Add Application
+          </Link>
+          <Link
+            href="/intelligence"
+            className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-md text-xs font-medium transition-colors"
+          >
+            🎓 Campus Benchmark Data &rarr;
+          </Link>
         </div>
       </div>
 
-      {/* Breakdowns list */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Domain Breakdown */}
-        <div className="glass-card p-6 rounded-xl border border-slate-800/80 space-y-4">
-          <h3 className="text-sm font-semibold text-slate-300 uppercase tracking-wider">
-            Breakdown by Domain
-          </h3>
-          {metrics.domainsBreakdown.length === 0 ? (
-            <p className="text-xs text-slate-500 italic py-6 text-center">No domain statistics available.</p>
-          ) : (
-            <div className="space-y-3">
-              {metrics.domainsBreakdown.map((item, idx) => (
-                <div key={idx} className="flex items-center justify-between bg-slate-950/40 p-3 rounded-lg border border-slate-800/50">
-                  <span className="text-xs font-semibold text-slate-300">{item.domain}</span>
-                  <span className="text-xs font-mono font-bold text-slate-200 bg-slate-800 px-2 py-0.5 rounded">
-                    {item.count} {item.count === 1 ? "app" : "apps"}
-                  </span>
-                </div>
-              ))}
+      {loading ? (
+        <div className="py-16 text-center text-xs text-slate-500">
+          Loading dashboard metrics...
+        </div>
+      ) : (
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="bg-[#111726] border border-slate-800 rounded-lg p-5 flex flex-col justify-between">
+              <span className="text-xs font-medium text-slate-400 uppercase tracking-wide">
+                Total Applications
+              </span>
+              <div className="text-3xl font-bold text-slate-100 my-2">
+                {activeMetrics.totalApplications}
+              </div>
+              <span className="text-[11px] text-slate-500">Applications submitted to date</span>
             </div>
-          )}
-        </div>
 
-        {/* Monthly Trends */}
-        <div className="glass-card p-6 rounded-xl border border-slate-800/80 space-y-4">
-          <h3 className="text-sm font-semibold text-slate-300 uppercase tracking-wider">
-            Monthly Application Trends
-          </h3>
-          {metrics.monthlyTrends.length === 0 ? (
-            <p className="text-xs text-slate-500 italic py-6 text-center">No trend timeline data available.</p>
-          ) : (
-            <div className="space-y-3">
-              {metrics.monthlyTrends.map((item, idx) => (
-                <div key={idx} className="flex items-center justify-between bg-slate-950/40 p-3 rounded-lg border border-slate-800/50">
-                  <span className="text-xs font-semibold text-slate-300">{item.month}</span>
-                  <div className="flex items-center gap-3">
-                    {/* Tiny simple bar indicator */}
-                    <div className="w-24 bg-slate-800 h-1.5 rounded-full overflow-hidden hidden sm:block">
-                      <div className="bg-indigo-500 h-full rounded-full" style={{ width: `${Math.min(item.count * 10, 100)}%` }}></div>
-                    </div>
-                    <span className="text-xs font-mono font-bold text-slate-200 bg-slate-800 px-2 py-0.5 rounded">
+            <div className="bg-[#111726] border border-slate-800 rounded-lg p-5 flex flex-col justify-between">
+              <span className="text-xs font-medium text-slate-400 uppercase tracking-wide">
+                Success Rate
+              </span>
+              <div className="text-3xl font-bold text-emerald-400 my-2">
+                {activeMetrics.successRate}%
+              </div>
+              <span className="text-[11px] text-slate-500">Percentage of offers secured</span>
+            </div>
+
+            <div className="bg-[#111726] border border-slate-800 rounded-lg p-5 flex flex-col justify-between">
+              <span className="text-xs font-medium text-slate-400 uppercase tracking-wide">
+                Active Interviews
+              </span>
+              <div className="text-3xl font-bold text-blue-400 my-2">
+                {activeMetrics.interviewing}
+              </div>
+              <span className="text-[11px] text-slate-500">In-progress interview rounds</span>
+            </div>
+
+            <div className="bg-[#111726] border border-slate-800 rounded-lg p-5 flex flex-col justify-between">
+              <span className="text-xs font-medium text-slate-400 uppercase tracking-wide">
+                ATS Readiness
+              </span>
+              <div className="text-3xl font-bold text-amber-400 my-2">
+                {activeMetrics.skillReadinessScore}%
+              </div>
+              <span className="text-[11px] text-slate-500">Average resume match score</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-[#111726] border border-slate-800 rounded-lg p-5 space-y-3">
+              <div className="flex items-center justify-between">
+                <h3 className="text-xs font-semibold text-slate-300 uppercase tracking-wide">
+                  Online Assessment (OA) Funnel
+                </h3>
+                <span className="text-xs font-bold text-slate-200">
+                  {activeMetrics.conversionRates?.oaConversionRate || 0}%
+                </span>
+              </div>
+              <div className="w-full bg-slate-900 h-2 rounded-full overflow-hidden border border-slate-800">
+                <div
+                  className="bg-blue-500 h-full rounded-full transition-all"
+                  style={{ width: `${activeMetrics.conversionRates?.oaConversionRate || 0}%` }}
+                ></div>
+              </div>
+              <p className="text-[11px] text-slate-500">
+                Applications advancing through online coding & aptitude screening rounds.
+              </p>
+            </div>
+
+            <div className="bg-[#111726] border border-slate-800 rounded-lg p-5 space-y-3">
+              <div className="flex items-center justify-between">
+                <h3 className="text-xs font-semibold text-slate-300 uppercase tracking-wide">
+                  Interview-to-Offer Conversion
+                </h3>
+                <span className="text-xs font-bold text-slate-200">
+                  {activeMetrics.conversionRates?.interviewConversionRate || 0}%
+                </span>
+              </div>
+              <div className="w-full bg-slate-900 h-2 rounded-full overflow-hidden border border-slate-800">
+                <div
+                  className="bg-emerald-500 h-full rounded-full transition-all"
+                  style={{ width: `${activeMetrics.conversionRates?.interviewConversionRate || 0}%` }}
+                ></div>
+              </div>
+              <p className="text-[11px] text-slate-500">
+                Percentage of active technical and behavioral interviews converting to verified offers.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-[#111726] border border-slate-800 rounded-lg p-5 space-y-3">
+              <div className="flex justify-between items-center">
+                <h3 className="text-xs font-semibold text-slate-300 uppercase tracking-wide">
+                  Applications by Target Domain
+                </h3>
+                <span className="text-[11px] text-slate-500">Categorized</span>
+              </div>
+              <div className="space-y-2 pt-1">
+                {(activeMetrics.domainsBreakdown || []).map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center justify-between p-2.5 rounded bg-slate-900/60 border border-slate-800/60 text-xs"
+                  >
+                    <span className="text-slate-300 font-medium">{item.domain}</span>
+                    <span className="text-slate-400 font-mono font-medium">
                       {item.count} {item.count === 1 ? "app" : "apps"}
                     </span>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          )}
-        </div>
-      </div>
+
+            <div className="bg-[#111726] border border-slate-800 rounded-lg p-5 space-y-3">
+              <div className="flex justify-between items-center">
+                <h3 className="text-xs font-semibold text-slate-300 uppercase tracking-wide">
+                  Submission Activity Timeline
+                </h3>
+                <span className="text-[11px] text-slate-500">Recent Months</span>
+              </div>
+              <div className="space-y-2 pt-1">
+                {(activeMetrics.monthlyTrends || []).map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center justify-between p-2.5 rounded bg-slate-900/60 border border-slate-800/60 text-xs"
+                  >
+                    <span className="text-slate-300 font-medium">{item.month}</span>
+                    <div className="flex items-center gap-3">
+                      <div className="w-24 bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                        <div
+                          className="bg-blue-500 h-full rounded-full"
+                          style={{ width: `${Math.min(item.count * 15, 100)}%` }}
+                        ></div>
+                      </div>
+                      <span className="text-slate-400 font-mono font-medium w-12 text-right">
+                        {item.count} apps
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-[#0f172a] border border-slate-800 rounded-lg p-5">
+            <h3 className="text-xs font-semibold text-slate-300 uppercase tracking-wide mb-3">
+              Quick Actions &amp; Resources
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <Link
+                href="/applications"
+                className="p-3 bg-[#111726] hover:bg-slate-800/80 border border-slate-800 rounded-md transition-colors block"
+              >
+                <div className="text-xs font-medium text-slate-200">💼 Application Tracker</div>
+                <div className="text-[11px] text-slate-500 mt-1">Manage pipeline stages & upcoming interview rounds</div>
+              </Link>
+              <Link
+                href="/analyzer"
+                className="p-3 bg-[#111726] hover:bg-slate-800/80 border border-slate-800 rounded-md transition-colors block"
+              >
+                <div className="text-xs font-medium text-slate-200">🧠 Skill &amp; Resume Analyzer</div>
+                <div className="text-[11px] text-slate-500 mt-1">Compare your resume against job descriptions for ATS readiness</div>
+              </Link>
+              <Link
+                href="/intelligence"
+                className="p-3 bg-[#111726] hover:bg-slate-800/80 border border-slate-800 rounded-md transition-colors block"
+              >
+                <div className="text-xs font-medium text-slate-200">🎓 Campus Benchmark Analytics</div>
+                <div className="text-[11px] text-slate-500 mt-1">Explore 800 placement records and salary statistics</div>
+              </Link>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

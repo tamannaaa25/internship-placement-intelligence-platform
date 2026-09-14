@@ -7,7 +7,6 @@ export async function apiFetch(endpoint, options = {}) {
     ...options.headers,
   };
 
-  // If body is FormData, do not set Content-Type header (browser sets it with multipart boundary automatically)
   if (!(options.body instanceof FormData)) {
     headers["Content-Type"] = "application/json";
   }
@@ -24,11 +23,9 @@ export async function apiFetch(endpoint, options = {}) {
   const response = await fetch(`${BASE_URL}${endpoint}`, config);
 
   if (response.status === 401) {
-    // Clear credentials and force login redirect if token has expired or is invalid
     if (typeof window !== "undefined") {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
-      // Prevent infinite redirect loops on login page
       if (!window.location.pathname.includes("/login") && !window.location.pathname.includes("/register")) {
         window.location.href = "/login";
       }

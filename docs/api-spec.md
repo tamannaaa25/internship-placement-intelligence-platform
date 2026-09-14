@@ -1,130 +1,145 @@
-# API Route Specifications
+# REST API Route Specifications & Contracts
 
-All backend REST API endpoints follow the `/api/v1` prefix. Payloads are exchanged in JSON format. Authenticated requests require a bearer token in the `Authorization` header.
+**Base URL:** `/api/v1`  
+**Data Format:** JSON (`application/json`) / Multipart Form (`multipart/form-data`)  
+**Authentication:** Bearer Token via HTTP Header: `Authorization: Bearer <JWT_TOKEN>`  
+**Response Wrapper:** Standardized JSON with `{ "success": boolean, "data": ... }` or `{ "success": false, "error": { "message": string } }`
 
 ---
 
 ## 1. Authentication Endpoints (`/api/v1/auth`)
 
-### POST `/register`
-Registers a new student.
-* **Payload**:
+### 1.1 Register Student (`POST /auth/register`)
+Creates a new student account.
+* **Request Body:**
   ```json
   {
-    "name": "Jane Doe",
-    "email": "jane@college.edu",
-    "password": "SecurePassword123"
+    "name": "Aditya Sharma",
+    "email": "aditya@university.edu",
+    "password": "StrongPassword123!"
   }
   ```
-* **Response (201 Created)**:
+* **Success Response (201 Created):**
   ```json
   {
     "success": true,
     "message": "User registered successfully",
-    "token": "eyJhbGciOi...",
+    "token": "eyJhbGciOiJIUzI1NiIsIn...",
     "user": {
-      "id": "uuid-123",
-      "name": "Jane Doe",
-      "email": "jane@college.edu",
+      "id": "c1f72b9a-4c2d-4e92-95f1-3bfb120f2621",
+      "name": "Aditya Sharma",
+      "email": "aditya@university.edu",
       "role": "STUDENT"
     }
   }
   ```
 
-### POST `/login`
-Authenticates user and returns JWT token.
-* **Payload**:
+### 1.2 Login Student (`POST /auth/login`)
+Authenticates credentials and issues a signed JWT.
+* **Request Body:**
   ```json
   {
-    "email": "jane@college.edu",
-    "password": "SecurePassword123"
+    "email": "aditya@university.edu",
+    "password": "StrongPassword123!"
   }
   ```
-* **Response (200 OK)**:
-  ```json
-  {
-    "success": true,
-    "token": "eyJhbGciOi...",
-    "user": {
-      "id": "uuid-123",
-      "name": "Jane Doe",
-      "email": "jane@college.edu",
-      "role": "STUDENT"
-    }
-  }
-  ```
+* **Success Response (200 OK):** Returns JWT token and user profile object.
 
 ---
 
 ## 2. Application Tracker Endpoints (`/api/v1/applications`)
-*(Requires JWT Authentication Header: `Authorization: Bearer <token>`)*
 
-### GET `/`
-Retrieves all applications tracked by the authenticated user.
-* **Query Parameters (Optional)**: `status`, `search`, `limit`, `offset`
-* **Response (200 OK)**:
+### 2.1 List Applications (`GET /applications`)
+Fetches all applications for the authenticated candidate with optional query filtering.
+* **Query Parameters:**
+  * `status` (optional): `APPLIED`, `OA_SCHEDULED`, `INTERVIEWING`, `OFFER`, `REJECTED`
+  * `domain` (optional): `SWE`, `DevOps`, `Data`, `Product`
+  * `sort` (optional): `deadline_asc`, `applied_desc`
+* **Success Response (200 OK):**
   ```json
   {
     "success": true,
+    "count": 2,
     "applications": [
       {
-        "id": "app-uuid",
+        "id": "a98e21bc-1234-4567-89ab-cdef01234567",
         "companyName": "Google",
-        "roleTitle": "Software Engineering Intern",
-        "status": "APPLIED",
-        "appliedDate": "2026-06-10T00:00:00Z",
-        "deadline": "2026-07-01T00:00:00Z"
+        "roleTitle": "Software Engineer Intern",
+        "domain": "SWE",
+        "status": "INTERVIEWING",
+        "salary": "32.00",
+        "location": "Bangalore",
+        "appliedDate": "2026-08-15T00:00:00.000Z",
+        "deadline": "2026-09-30T00:00:00.000Z",
+        "roundsCount": 2
       }
     ]
   }
   ```
 
-### POST `/`
-Creates a new job application log.
-* **Payload**:
+### 2.2 Create Application (`POST /applications`)
+Registers a new application record.
+* **Request Body:**
   ```json
   {
-    "companyName": "Google",
-    "roleTitle": "Software Engineering Intern",
-    "jobUrl": "https://careers.google.com/...",
-    "salary": 120000,
-    "location": "Bangalore",
-    "domain": "Software Engineering",
+    "companyName": "Microsoft",
+    "roleTitle": "Cloud Solutions Associate",
+    "domain": "Cloud",
     "status": "APPLIED",
-    "appliedDate": "2026-06-10T00:00:00Z"
+    "jobUrl": "https://careers.microsoft.com/job/123",
+    "salary": 20.5,
+    "location": "Hyderabad",
+    "deadline": "2026-10-15T23:59:59.000Z"
   }
   ```
-* **Response (201 Created)**:
+* **Success Response (201 Created):** Returns the persisted application object.
+
+### 2.3 Add Interview Round (`POST /applications/:id/rounds`)
+Appends an interview round to an existing application.
+* **Request Body:**
   ```json
   {
-    "success": true,
-    "application": { "id": "app-uuid", ... }
+    "roundName": "Technical Round 1 (DSA & System Design)",
+    "roundOrder": 1,
+    "scheduledDate": "2026-09-18T10:00:00.000Z",
+    "interviewer": "Senior Engineering Lead",
+    "feedback": "Asked binary trees and rate limiting algorithms.",
+    "rating": 4
   }
   ```
+* **Success Response (201 Created):** Returns the round details with parent linkage.
 
 ---
 
-## 3. Resume Analyzer Endpoints (`/api/v1/analyzer`)
-*(Requires JWT Authentication Header)*
+## 3. Resume ↔ JD Skill Gap Analyzer Endpoints (`/api/v1/analyzer`)
 
-### POST `/analyze`
-Uploads a resume file and compares it against a job description.
-* **Request (Multipart/form-data)**:
-  - `resume`: File upload (PDF format)
-  - `jobDescription`: String field containing JD text
-* **Response (200 OK)**:
+### 3.1 Analyze Resume against Job Description (`POST /analyzer/analyze`)
+* **Content-Type:** `multipart/form-data`
+* **Form Fields:**
+  * `resume`: File buffer (PDF, max 5MB)
+  * `jobDescription`: String (target job description, min 50 characters)
+  * `targetRole`: String (e.g., "Full Stack Developer")
+* **Success Response (200 OK):**
   ```json
   {
     "success": true,
     "analysis": {
-      "matchScore": 78,
-      "matchedSkills": ["JavaScript", "React", "Node.js"],
-      "missingSkills": ["Docker", "PostgreSQL", "System Design"],
+      "atsScore": 82,
+      "summary": "Strong core fundamentals in JavaScript and backend architecture. Missing distributed caching and Docker experience.",
+      "matchedSkills": ["JavaScript", "Node.js", "Express.js", "MongoDB", "MySQL", "REST APIs"],
+      "missingSkills": ["Docker", "Redis", "AWS S3", "Kubernetes"],
       "roadmap": [
         {
-          "skill": "Docker",
-          "topics": ["Containers vs VMs", "Dockerfile syntax", "Docker Compose"],
-          "resources": ["Docker Official Guide", "FreeCodeCamp Crash Course"]
+          "step": 1,
+          "title": "Containerization Fundamentals",
+          "action": "Learn Docker multi-stage builds and compose local multi-container setups.",
+          "estimatedHours": 8
+        },
+        {
+          "step": 2,
+          "title": "In-Memory Caching",
+          "action": "Implement Redis cache on top of database queries to reduce DB load.",
+          "estimatedHours": 6
         }
       ]
     }
@@ -133,29 +148,72 @@ Uploads a resume file and compares it against a job description.
 
 ---
 
-## 4. Analytics Dashboard Endpoints (`/api/v1/analytics`)
-*(Requires JWT Authentication Header)*
+## 4. Analytics & Intelligence Endpoints (`/api/v1/analytics`)
 
-### GET `/summary`
-Fetches high-level metrics for dashboard graphs.
-* **Response (200 OK)**:
+### 4.1 Personal Preparation Summary (`GET /analytics/summary`)
+Returns the student's individual recruitment funnel metrics.
+* **Success Response (200 OK):**
   ```json
   {
     "success": true,
     "metrics": {
-      "totalApplications": 42,
+      "totalApplications": 48,
+      "offers": 3,
+      "rejections": 12,
+      "interviewing": 6,
+      "successRate": 6.3,
       "conversionRates": {
-        "oaToInterview": 64.5,
-        "interviewToOffer": 23.1
+        "oaConversionRate": 58.3,
+        "interviewConversionRate": 25.0
       },
+      "skillReadinessScore": 78.4,
       "domainsBreakdown": [
-        { "domain": "Software Engineering", "count": 25 },
-        { "domain": "DevOps", "count": 10 }
+        { "domain": "SWE", "count": 28 },
+        { "domain": "DevOps", "count": 12 },
+        { "domain": "Data Analyst", "count": 8 }
       ],
       "monthlyTrends": [
-        { "month": "May", "count": 12 },
-        { "month": "June", "count": 30 }
+        { "month": "Aug 2026", "count": 18 },
+        { "month": "Sep 2026", "count": 30 }
       ]
     }
   }
   ```
+
+### 4.2 Campus Placement Intelligence (`GET /analytics/intelligence`)
+Aggregates campus placement benchmarks across the 800-student cohort.
+* **Query Parameters:**
+  * `department` (optional): `Computer Science & Engineering`, `Information Technology`, etc.
+  * `year` (optional): `2023`, `2024`, `2025`, `2026`
+  * `status` (optional): `Placed`, `Unplaced`
+  * `internship` (optional): `Yes`, `No`
+  * `role` (optional): `Software Engineer`, `Data Analyst`, etc.
+* **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "kpis": {
+      "total": 800,
+      "placedCount": 644,
+      "placementRate": 80.5,
+      "avgSalary": 10.99,
+      "maxSalary": 34.56,
+      "internRate": 73.0
+    },
+    "count": 800,
+    "records": [...]
+  }
+  ```
+
+---
+
+## 5. HTTP Error Code Standards
+
+| HTTP Code | Error Type | Scenario |
+| :--- | :--- | :--- |
+| **`400 Bad Request`** | Validation Error | Payload missing required fields or failing Zod schema. |
+| **`401 Unauthorized`** | Authentication Failure | Missing, malformed, or expired JWT bearer token. |
+| **`403 Forbidden`** | Authorization Failure | Student attempting to access another user's private data. |
+| **`404 Not Found`** | Resource Missing | Application ID or resume record does not exist. |
+| **`413 Payload Too Large`** | File Size Limit | Uploaded resume exceeds the 5MB boundary. |
+| **`500 Internal Server Error`** | Unhandled Exception | Database connection failure or unhandled service crash. |

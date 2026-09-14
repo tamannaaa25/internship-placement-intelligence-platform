@@ -14,7 +14,7 @@ const getApplicationDetails = async (userId, id) => {
   }
 
   // Authorize: check if user owns this application record
-  if (application.userId !== userId) {
+  if (application.userId.toString() !== userId.toString()) {
     const error = new Error("Access denied: you do not own this resource");
     error.statusCode = 403;
     throw error;
